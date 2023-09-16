@@ -1,0 +1,52 @@
+body {
+    background-image: url("../images/background/bg-large.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 20px;
+    font-family: monospace;
+}
+
+.header {
+    border-radius: 20px 20px 0px 0px;
+    padding: 10px 0px;
+    background: rgb(39, 75, 35);
+    color: #fff;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.faq-item {
+    margin-bottom: 35px;
+    margin-top: 35px;
+}
+
+.faq-body {
+    padding: 0 12px 0 12px;
+    display: none;
+    margin-top: 30px;
+    color: rgba(26, 26, 26, 0.911);
+    font-size: 1em;
+}
+
+.faq-wrapper {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.faq-inner {
+    padding: 30px;
+    background: aliceblue;
+}
+
+.faq-plus {
+    float: right;
+    font-size: 1.2em;
+    line-height: 1em;
+    cursor: pointer;
+}
+
+hr {
+    background-color: #9b9b9b;
+}

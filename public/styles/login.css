@@ -1,0 +1,53 @@
+body {
+    background-image: url(../images/background/bg-small.jpg);
+    background-size: cover;
+}
+
+#main {
+    color: white;
+}
+
+#txt {
+    background-color: rgba(0, 0, 0, 0.227);
+    border-radius: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: 2.1s;
+}
+
+#txt:hover {
+    color: rgb(234, 223, 208);
+    background-color: rgba(0, 0, 0, 0.439);
+}
+
+#login-sec {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+form > input {
+    background-color: rgba(0, 0, 0, 0.237);
+    border: 1px solid rgba(147, 147, 147, 0.485);
+    padding: 9px;
+    width: 270px;
+    font-size: 1.37em;
+}
+
+label {
+    font-size: 1.1em;
+}
+
+#submit-btn {
+    font-size: 1.55em;
+    background-color: rgba(0, 0, 0, 0.480);
+    border: 0px;
+    padding: 11px;
+    width: 210px;
+}
+
+.sign-up-link {
+    color: wheat;
+    font-size: 1.09em;
+}
+
+input, button {
+    border-radius: 10px;
+}

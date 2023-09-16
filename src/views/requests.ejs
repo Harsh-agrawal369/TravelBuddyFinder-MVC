@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Requests</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="./styles/requests.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div>
+
+      <div class="container-fluid" id="welcome">
+        <% if (name) { %>
+          <p id="wel">Hello <%= name %>!</p>
+          <p id="wel1">Here are all the requests related to your journey details.</p>
+        <% } else { %>
+          <p id="wel">Hello User!</p>
+          <p id="wel1">Here are all the requests related to your journey details.</p>
+        <% } %>
+      </div>
+      <div class="container-fluid" style="text-align: center; " id="request">
+          <div class="scroll-div">
+            <div class="scroll-object">
+              <%if(mode=="train") { %>
+                <%data.forEach(i => { %>
+                  <div class="show-data">
+                    <div class="row">
+                      <div class="col-md-6">
+                        From: <%=i.from%>
+                      </div>
+                      <div class="col-md-6">
+                        To: <%=i.to%>
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        Date: <%=new Date(i.date).toLocaleDateString()%>
+                      </div>
+                      <div class="col-md-6">
+                        Train: <%=i.Trainnumber%>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        Class: <%=i.class%>
+                      </div>
+                      <div class="col-md-6">
+                        Contact: <%=i.contact_num%>
+                      </div>
+                    </div>
+                  </div>
+                <%})%>
+              <% } else if(mode=="flight") {%>
+                <%data.forEach(i => { %>
+                  <div class="show-data">
+                    <div class="row">
+                      <div class="col-md-6">
+                        From: <%=i.from%>
+                      </div>
+                      <div class="col-md-6">
+                        To: <%=i.to%>
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        Date: <%=new Date(i.date).toLocaleDateString()%>
+                      </div>
+                      <div class="col-md-6">
+                        Flight: <%=i.Flightnumber%>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        Class: <%=i.class%>
+                      </div>
+                      <div class="col-md-6">
+                        Contact: <%=i.contact_num%>
+                      </div>
+                    </div>
+                  </div>
+                <%})%>
+              
+              <%}else{%>
+                <%data.forEach(i => { %>
+                  <div class="show-data">
+                    <div class="row">
+                      <div class="col-md-6">
+                        From: <%=i.from%>
+                      </div>
+                      <div class="col-md-6">
+                        To: <%=i.to%>
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        Date: <%=new Date(i.date).toLocaleDateString()%>
+                      </div>
+                      <div class="col-md-6">
+                        time: <%=i.time%>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        Vacant Space: <%=i.vacantspace%>
+                      </div>
+                      <div class="col-md-6">
+                        Gender Prefrence: <%=i.genderSpecification%>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        Fare Share: <%=i.fareShare%>
+                      </div>
+                      <div class="col-md-6">
+                        Contact: <%=i.contact_num%>
+                      </div>
+                    </div>
+                  </div>
+                <%})%>
+              <%}%>
+            </div>
+          </div>
+      </div>
+
+      <div class="container-fluid" id="PostnewRequest1"> 
+        <div class="postnewRequest2">
+          <div class="row">
+            <div class="col-md-7" id="postData">
+              <p>Could not find a perfect Request?</p>
+              <p style="padding-right: 100px;">Post a new Request</p>
+            </div>
+            <div class="col-md-5">
+              <div class="plus">
+                <div class="plus1">
+                  <%if(mode=="train"){%>
+                    <a href="/postRequestTrain" style="color: white;">Add Request</a>
+                  <%} else if(mode=="flight") {%>
+                    <a href="/postRequestFlight" style="color: white;">Add Request</a>
+                  <%}else{%>
+                    <a href="/postRequestCab" style="color: white;">Add Request</a>
+                  <%}%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="/backhome" class="options home-link">&#8592; Back to Home</a> <br> <br>
+  </body>
+</html>
+
+    

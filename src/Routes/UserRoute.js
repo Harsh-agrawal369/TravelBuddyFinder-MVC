@@ -1,0 +1,114 @@
+const express = require("express");
+const UserRoute = express();
+const path = require("path");
+const bodyparser= require("body-parser");
+const Register = require("../models/register");
+
+UserRoute.use(bodyparser.json());
+UserRoute.use(bodyparser.urlencoded({extended:true}));
+
+const controller= require("../controllers/RegisterController");
+const Auth = require("../middleware/Auth");
+
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+const config = require("../config/config");
+
+
+//Creating session
+UserRoute.use(cookieParser());
+UserRoute.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret: config.sessionSecret
+}))
+
+UserRoute.use((req, res, next) => {
+  // Middleware logic for UserRoute
+  next();
+});
+
+//Setting view Engine ejs
+UserRoute.set('view engine', 'ejs');
+UserRoute.set('views', path.join(__dirname, "../views"));
+
+
+//All get Routes
+UserRoute.get("/", Auth.isLogout, (req,res) => {
+    res.render("login", { errorMessage: null })
+})
+
+UserRoute.get("/login", Auth.isLogout, (req,res) => {
+    res.render("login", {errorMessage:null})
+})
+
+UserRoute.get("/signup", Auth.isLogout, (req,res) => {
+    res.render("signup", { errorMessage: null })
+})
+
+//Rendering Faq
+UserRoute.get("/faq",Auth.isLogin, (req, res) => {
+    res.render("faq");
+})
+
+//Rendering About Page
+UserRoute.get("/about", Auth.isLogin, (req, res) => {
+    res.render("about");
+})
+  
+//Rendering Index
+UserRoute.get("/index", Auth.isLogin, async (req,res) => {
+    const user = await Register.findOne({_id: req.session.user_id});
+    try{
+      res.render("index", {name: user.Name});
+    }catch(err){
+      res.render("login", {errorMessage: "Internal server error!"})
+    }
+})
+
+//Rendering Logout
+UserRoute.get("/logout", Auth.isLogin, (req,res) => {
+    try{
+      req.session.destroy();
+      res.redirect('/');
+    }catch(err){
+      console.log(err);
+    }
+})
+
+//Rendering backhome
+UserRoute.get("/backhome", Auth.isLogin, async (req,res) => {
+    try{
+      const user = await Register.findOne({ _id : req.session.user_id});
+      res.render("index", {name: user.Name});
+    } catch(err){
+      res.render("index", {name: null});
+    }
+})
+  
+//Rendering myprofile
+UserRoute.get("/myprofile", Auth.isLogin, async (req,res) => {
+  
+    const user = await Register.findOne({ _id: req.session.user_id });
+    res.render("myprofile", {name: user.Name, data: user});
+})
+  
+//Rendering Change pass
+UserRoute.get("/changepass", Auth.isLogin, async (req,res) => {
+    const user= await Register.findOne({ _id: req.session.user_id });
+    res.render("changepass", {name: user.Name, error: null});
+})
+
+
+//All Post Requests
+
+//Rendering SignUp post Request
+UserRoute.post("/signup", controller.Signup);
+
+//Rendering Login post Request
+UserRoute.post("/login", controller.Login);
+
+//Rendering UpdatePassword Post Request
+UserRoute.post("/updatepass", controller.UpdatePassword);
+
+module.exports=UserRoute;

@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/home.css">
+
+    <title>Travel Buddy Finder</title>
+
+    <style>
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        .tip-points {
+            display: none;
+            opacity: 0;
+            transition: opacity 3s ease;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <br>
+        <h1 style="font-size: 3.7em; padding-top: 10px; display: inline; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        padding-left:10px; text-shadow:4px 4px 4px rgb(7, 8, 0);">Travel Buddy Finder</h1>
+
+
+        <nav style="float: right; margin-top: 20px;">
+            <a href="/about">ABOUT US</a>
+            <a href="/faq">FAQ'S</a>
+            <a href="#">CONTACT US</a>
+            <span class="profile">
+                <% if(name){ %>
+                    <img src="./images/user-symbol.png" style="width: 30px; margin-right: 10px;" alt=""><span class="username"><%=name%></span>
+                <% } else { %>
+                    <img src="./images/user-symbol.png" style="width: 30px; margin-right: 10px;" alt=""><span class="username">USERNAME</span>
+                <% } %>
+                <div class="dropdown-content">
+                    <a href="/myprofile">My Profile</a>
+                    <a href="/requesthistory">My Requests</a>
+                    <a href="/logout" class="logout-btn">Log-Out</a>
+                </div>
+            </span>
+        </nav>
+    </div>
+
+    <br><br><br>
+    <br><br><br>
+
+    <h1 class="typewriter"
+        style=" color: rgb(230, 230, 230);font-size: 3.6em; text-align: center; font-family: 'Poppins', sans-serif; text-shadow:4px 4px 4px rgb(7, 8, 0);">
+        SOMETIMES ALL YOU NEED IS A FRIEND TO TRAVEL ALONG</h1>
+    <br><br>
+
+
+    <div class="container-fluid" style="text-align: center; width: 80%;">
+        <div class="row dflex justify-content-center" style="padding: 0 100px 0 100px;">
+            <div class="col-lg-4 type-button-div">
+                <button id="type-btnCab" style="width: 100%; padding: 15px 0 15px 0;"
+                    onclick="showSearchWindow('Cab')">Cab</button>
+            </div>
+            <div class="col-lg-4 type-button-div">
+                <button id="type-btnTrain" style="width: 100%; padding: 15px 0 15px 0;"
+                    onclick="showSearchWindow('Train')">Train</button>
+            </div>
+            <div class="col-lg-4 type-button-div">
+                <button id="type-btnFlight" style="width: 100%; padding: 15px 0 15px 0;"
+                    onclick="showSearchWindow('Flight')">Flight</button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="search-section">
+        <br>
+        <div id="searchWindowCab" class="search-menu" style="display: none;">
+            <form action="/searchCab" method="post">
+                <input type="hidden" name="Mode" value="Cab">
+                <div class="d-flex flex-column">
+                    <div class="d-flex flex-row justify-content-around">
+                        <div class="from-location">
+                            <label>FROM: </label>
+                            <input type="text" name="from" class="travel-info" style="width: 250px;">
+                        </div>
+                        <div class="to-location">
+                            <label>TO: </label>
+                            <input type="text" name="to" class="travel-info" style="width: 250px;">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="d-flex flex-row justify-content-around">
+                        <div class="travel-date">
+                            <label>DATE: </label> <input type="date" name="date" placeholder="date" class="travel-info">
+                        </div>
+                        <div class="travel-time">
+                            <label>TIME: </label> <input type="time" name="time" placeholder="time" class="travel-info">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="d-flex flex-row justify-content-around">
+                        <div class="number-people">
+                            <input type="number" name="numberofpassenger" placeholder="Number of Passengers"class="travel-info">
+                        </div>
+                    </div>
+
+                    <br><br><br><br><br><br>
+                    <div class="d-flex flex-row justify-content-around">
+                        <button type="submit" class="submit-btn" >SEARCH</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div id="searchWindowFlight" class="search-menu" style="display: none;">
+            <form action="/searchFlight" method="post">
+                <input type="hidden" name="Mode" value="Flight">
+                <div class="d-flex flex-column">
+                    <div class="d-flex flex-row justify-content-around">
+                        <div class="from-location">
+                            <label>FROM</label><br>
+                            <input type="text" name="from" class="travel-info" style="width: 250px;">
+                        </div>
+                        <div class="to-location">
+                            <label>TO</label><br>
+                            <input type="text" name="to" class="travel-info" style="width: 250px;">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="d-flex flex-row justify-content-around">
+                        <div class="flight-date">
+                            <label>DEPARTURE DATE</label><br>
+                            <input type="date" name="departure_date" class="travel-info">
+                        </div>
+
+                        <div class="flight-class">
+                            <label>FLIGHT NUMBER</label><br>
+                            <input type="text" name="flightNumber" class="travel-info">
+                        </div>
+                        
+                    </div>
+                    <br>
+                    <!-- <div class="d-flex flex-row justify-content-around">
+                         <div class="flight-class">
+                            <label>CLASS</label><br>
+                            <select name="class" class="travel-info">
+                                <option value="economy">Economy</option>
+                                <option value="business">Business</option>
+                                <option value="first">First Class</option>
+                            </select>
+                        </div> -->
+                        
+                        <!-- <div class="flight-passengers">
+                            <label>PASSENGERS</label><br>
+                            <input type="number" name="passengers" min="1" class="travel-info">
+                        </div> 
+                    </div> -->
+                </div>
+                <br><br><br>
+                <div class="d-flex flex-row justify-content-around">
+                    <button type="submit" class="submit-btn" >SEARCH</button>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div id="searchWindowTrain" class="search-menu" style="display: none;">
+            <form action="/searchTrain" method="post">
+                <input type="hidden" name="Mode" value="Train">
+                <div class="d-flex flex-column">
+                    <div class="d-flex flex-row justify-content-around">
+                        <div class="from-location">
+                            <label>FROM</label><br>
+                            <input type="text" name="from" class="travel-info" style="width: 250px;">
+                        </div>
+                        <div class="to-location">
+                            <label>TO</label><br>
+                            <input type="text" name="to" class="travel-info" style="width: 250px;">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="d-flex flex-row justify-content-around">
+                        <div class="train-date">
+                            <label>DEPARTURE DATE</label><br>
+                            <input type="date" name="departure_date" class="travel-info">
+                        </div>
+                        <!-- <div class="train-time">
+                            <label>DEPARTURE TIME</label><br>
+                            <input type="time" name="departure_time" class="travel-info">
+                        </div> -->
+                        <div class="train-class">
+                            <label>TRAIN NUMBER</label><br>
+                            <input type="text" name="TrainNumber" class="travel-info">
+                        </div>
+                    </div>
+                    <br>
+                    <!-- <div class="d-flex flex-row justify-content-around">
+                         <div class="train-class">
+                            <label>CLASS</label><br>
+                            <select name="class" class="travel-info">
+                                <option value="">-- Select --</option>
+                                <option value="sleeper">Sleeper</option>
+                                <option value="ac">AC</option>
+                                <option value="first">First Class</option>
+                            </select>
+                        </div> -->
+                        
+                        <!-- <div class="train-passengers">
+                            <label>PASSENGERS</label><br>
+                            <input type="number" name="passengers" min="1" class="travel-info">
+                        </div> 
+                    </div> -->
+                </div>
+                <br><br><br>
+                <div class="d-flex flex-row justify-content-around">
+                    <button type="submit" class="submit-btn" >SEARCH</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <br><br><br>
+
+    <div class="container-fluid" style="text-align: center; font-family: 'Poppins';">
+        <div class="row dflex justify-content-around">
+            <div class="col-5 keepinmind">
+                <h1 class="section-title">Things to Keep in Mind</h1>
+                <ul class="tips-list">
+                    <li onclick="handleTipClick(0)">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="tip">Travel Planning</span>
+                        <ul class="tip-points" id="tipPoints0">
+                            <li>Research your destination thoroughly.</li>
+                            <li>Plan a flexible itinerary.</li>
+                            <li>Budget wisely.</li>
+                        </ul>
+                    </li>
+                    <li onclick="handleTipClick(1)">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="tip">Health and Safety.</span>
+                        <ul class="tip-points" id="tipPoints1">
+                            <li>Get comprehensive travel insurance.</li>
+                            <li>Prioritize health precautions.</li>
+                            <li>Stay safety-aware.</li>
+                        </ul>
+                    </li>
+                    <li onclick="handleTipClick(2)">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="tip">Logistics and Communication:</span>
+                        <ul class="tip-points" id="tipPoints2">
+                            <li>Ensure your travel documents.</li>
+                            <li>Optimize communication.</li>
+                            <li>Pack efficiently.</li>
+                        </ul>
+                    </li>
+
+                    <li onclick="handleTipClick(3)">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="tip">Emergency Preparedness</span>
+                        <ul class="tip-points" id="tipPoints3">
+                            <li>Know emergency numbers and contacts.</li>
+                            <li>Carry essential emergency supplies.</li>
+                            <li>Have a contingency plan.</li>
+                        </ul>
+                    </li>
+                    <li onclick="handleTipClick(4)">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="tip">Always carry important travel documents and identification.</span>
+                        <ul class="tip-points" id="tipPoints4">
+                            <li>Carry your passport, visa, and other necessary documents.</li>
+                            <li>Make copies of your important documents and keep them separate.</li>
+                            <li>Store digital copies of your documents in a secure location.</li>
+                        </ul>
+                    </li>
+                    <li onclick="handleTipClick(5)">
+                        <i class="fas fa-check-circle"></i>
+                        <span class="tip">Transportation</span>
+                        <ul class="tip-points" id="tipPoints5">
+                            <li>Plan transportation in advance.</li>
+                            <li>Stay organized during transit.</li>
+                            <li>Be aware of transportation options.</li>
+                        </ul>
+                    </li>
+                    <!-- Add more <li> elements with corresponding tip points -->
+                </ul>
+            </div>
+            <div class="col-5" style="text-align: center;">
+                <div class="row keepinmind" style="padding: 6px; text-align: center;">
+                    <div class="col-12 booking">
+                        Book Flight
+                        <br> <br>
+                        <div class="row">
+                            <div class="col-3">
+                                <a href="https://www.goindigo.in" target="_blank">
+                                    <img src="/images/indigo.png" class="fbk" alt="">
+                                </a>
+                            </div>
+                            <div class="col-3">
+                                <a href="https://www.airindia.com/" target="_blank">
+                                    <img src="/images/587b511a44060909aa603a81.png" class="fbk" alt="">
+                                </a>
+                            </div>
+                            <div class="col-3">
+                                <a href="https://www.airvistara.com/in/en" target="_blank">
+                                    <img src="/images/B3B6A-7CUAAjarl.jpg" class="fbk" alt="">
+                                </a>
+                            </div>
+                            <div class="col-3">
+                                <a href="https://www.emirates.com/in/english/" target="_blank">
+                                    <img src="/images/850px-Emirates_logo.svg.png" class="fbk" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="row keepinmind" style="padding: 6px; text-align: center;">
+                    <div class="col-12 booking">
+                        Book Train
+                        <br> <br>
+                        <div class="col-12">
+                            <a href="https://www.irctc.co.in/nget/train-search" target="_blank">
+                                <img src="/images/download.png" class="fbk" alt="">
+                            </a>
+                        </div>
+                        <br>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleTipClick(index) {
+            var tipPoints = document.getElementById(`tipPoints${index}`);
+            var tipPointsStyle = getComputedStyle(tipPoints);
+
+            if (tipPointsStyle.display === "none") {
+                tipPoints.style.display = "block";
+                setTimeout(function () {
+                    tipPoints.style.opacity = "1";
+                }, 100);
+            } else {
+                tipPoints.style.opacity = "0";
+                setTimeout(function () {
+                    tipPoints.style.display = "none";
+                }, 200);
+            }
+        }
+    </script>
+
+    <br>
+
+    <div class="container-fluid" >
+        <div class="row keepinmind" style="padding: 6px; margin: 0 100px 0 100px" id="rating-main">
+
+            <!-- Add this hidden element to store the success message -->
+            <div id="rating-success-message" style="display: none;">Thank you for your Response!</div>
+
+
+
+            <div class="col-12" style="font-family:'Poppins'; font-weight:500; text-align:center;" id="rating">
+                <h1 style="color: rgb(64, 142, 250);">Share your Feedback</h1>
+
+                <br>
+
+                <div class="container-fluid">
+
+                    <div class="row dflex justify-content-between">
+                        <form action="/rating" method="post">
+                        <div class="star-section">
+                            <p style="font-size: 1.3em;">How much would you like to rate us?</p>
+                            <p class="star-rating">
+                                <i class="my-star star-1" data-star="1"></i>
+                                <i class="my-star star-2" data-star="2"></i>
+                                <i class="my-star star-3" data-star="3"></i>
+                                <i class="my-star star-4" data-star="4"></i>
+                                <i class="my-star star-5" data-star="5"></i>
+                            </p>
+                            
+                                <input type="hidden" readonly id="output" name="Rating">
+                            </form>
+                            
+                       
+                        <div class="review-section">
+
+                                <div class="input-container">
+                                    <input type="text" class="review-input" name="Feedback" placeholder="Write your Feedback here..." style="color: rgb(0, 0, 0);">
+                                </div> <br><br>
+
+                                <button class="rbtn" onclick="changeReviewSection()">
+                                    Submit
+                                </button>
+                            
+                        </div> 
+                        </form>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <!-- <footer>
+        <span>
+            <a href="#" class="end-links">Shaurya Pratap Singh (21BIT0049)</a>
+            <a href="#" class="end-links">Harsh Agrawal (21BIT0412)</a>
+            <a href="#" class="end-links">Gunjan Mahajan (21BIT0008)</a>
+            <a href="#" class="end-links">Parth Nagdev (21BIT0398)</a>
+        </span>
+    </footer> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        document.getElementById("searchWindowCab").style.display = "block";
+        document.getElementById("type-btnCab").style.backgroundColor = "rgb(18, 73, 151)";
+
+        document.getElementById("type-btnCab").style.border = "3px solid rgba(255, 255, 255, 0.796)";
+        document.getElementById("type-btnTrain").style.border = "none";
+        document.getElementById("type-btnFlight").style.border = "none";
+
+        function showSearchWindow(type) {
+            var searchWindows = document.getElementsByClassName("search-menu");
+            for (var i = 0; i < searchWindows.length; i++) {
+                searchWindows[i].style.display = "none";
+                document.getElementById("type-btnCab").style.backgroundColor = "rgb(38, 93, 201)";
+                document.getElementById("type-btnTrain").style.backgroundColor = "rgb(38, 93, 201)";
+                document.getElementById("type-btnFlight").style.backgroundColor = "rgb(38, 93, 201)";
+
+                document.getElementById("type-btnCab").style.border = "none";
+                document.getElementById("type-btnTrain").style.border = "none";
+                document.getElementById("type-btnFlight").style.border = "none";
+            }
+
+            var searchWindow = document.getElementById("searchWindow" + type);
+            if (searchWindow) {
+                searchWindow.style.display = "block";
+                document.getElementById("type-btn" + type).style.backgroundColor = "rgb(18, 73, 151)";
+                document.getElementById("type-btn" + type).style.border = "3px solid rgba(255, 255, 255, 0.796)";
+            }
+        }
+
+
+    </script>
+
+    
+
+    <script>
+        window.onload = function () {
+            var elements = document.getElementsByClassName("typewriter");
+            for (var i = 0; i < elements.length; i++) {
+                var text = elements[i].innerHTML;
+                elements[i].innerHTML = "";
+                var span = document.createElement("span");
+                elements[i].appendChild(span);
+                var j = 0;
+                var interval = setInterval(function () {
+                    if (j < text.length) {
+                        span.innerHTML += text.charAt(j);
+                        j++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 70);
+            }
+        };
+
+
+    document.addEventListener('DOMContentLoaded', function(){
+    (function(){
+        let sr = document.querySelectorAll('.my-star');
+        let i = 0;
+        //loop through stars
+        while (i < sr.length){
+            //attach click event
+            sr[i].addEventListener('click', function(){
+                //current star
+                let cs = parseInt(this.getAttribute("data-star"));
+                //output current clicked star value
+                document.querySelector('#output').value = cs;
+                /*our first loop to set the class on preceding star elements*/
+                let pre = cs; //set the current star value
+                //loop through and set the active class on preceding stars
+                while(1 <= pre){
+                    //check if the classlist contains the active class, if not, add the class
+                    if(!document.querySelector('.star-'+pre).classList.contains('is-active')){
+                        document.querySelector('.star-'+pre).classList.add('is-active');
+                    }
+                    //decrement our current index
+                    --pre;
+                }//end of first loop
+            })//end of click event
+            i++;
+        }//end of while loop
+        // Inside the form's submit event listener
+        
+
+    })();//end of function
+        
+    })
+
+    function changeReviewSection() {
+    // Hide the rating section
+    document.getElementById("rating").style.display = "none";
+    
+    // Show the success message
+    const successMessage = document.getElementById("rating-success-message");
+    successMessage.style.display = "block";
+
+    // Optionally, you can redirect to another page or perform additional actions here
+    }
+
+    
+
+    
+    </script>
+
+</body>
+
+</html>

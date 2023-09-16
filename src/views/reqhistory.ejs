@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/reqhistory.css">
+
+</head>
+<body>
+    <div class="header">
+        <br>
+        <h1 style="font-size: 3.7em; padding-top: 10px; display: inline; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        padding-left:10px; text-shadow:3px 3px 3px rgb(7, 8, 0);">Travel Buddy Finder</h1>
+
+
+        <nav style="float: right; margin-top: 20px;">
+            <a href="/about">ABOUT US</a>
+            <a href="/faq">FAQ'S</a>
+            <a href="#">CONTACT US</a>
+            <span class="profile">
+                <%if(name){%>
+                    <img src="./images/user-symbol.png" style="width: 30px; margin-right: 10px;" alt=""><span class="username"><%=name%></span>
+                <%} else{%>
+                    <img src="./images/user-symbol.png" style="width: 30px; margin-right: 10px;" alt=""><span class="username">USERNAME</span>
+                <%}%>
+                <div class="dropdown-content">
+                    <a href="/myprofile">My Profile</a>
+                    <a href="/requesthistory">My Requests</a>
+                    <a href="/logout" class="logout-btn">Log-Out</a>
+                </div>
+            </span>
+        </nav>
+    </div>
+
+    <div class="container-fluid section-entire">
+        <h1>Previous Requests</h1>
+
+        <p class="reqtype">Flight</p>
+
+        <%if(flight.length!==0){%>
+
+            <% flight.forEach(function(i) { %>
+                <div class="d-flex">
+                    <div class="row panel">
+                        <!-- from, to, date, time, mode of transport, matched(or not) -->
+                        <div class="d-flex row row1">
+                            <div class="col-md-6 element from">From: &nbsp;&nbsp; <%= i.from %></div>
+                            <div class="col-md-5 element to">To: &nbsp;&nbsp; <%= i.to %></div>
+                        </div>
+                        <div class="row row2">
+                            <div class="col-md-6 element date">Date: &nbsp;&nbsp; <%= new Date(i.date).toLocaleDateString() %></div>
+                            <div class="col-md-5 element time">Flight Number: &nbsp;&nbsp; <%= i.Flightnumber %></div>
+                        </div>
+                    </div>
+                    <div class="del"><a href="/deleteRequestFlight/<%=i._id%>"><i class="fa-solid fa-trash fa-2xl" style="color: #d10000;"></i></a></div>
+                </div>
+            <% }); %>
+        <%}else{%>
+            <div class="row panel">
+                <p>No Request for Flight.</p>
+            </div>
+        <%}%>
+        
+        <p class="reqtype">Train</p>
+        
+        <%if(train.length!==0){%>
+
+            <% train.forEach(function(i) { %>
+                
+            <% }); %>
+
+            <% train.forEach(function(i) { %>
+                <div class="d-flex">
+                    <div class="row panel">
+                        <!-- from, to, date, time, mode of transport, matched(or not) -->
+                        <div class="d-flex row row1">
+                            <div class="col-md-6 element from">From: &nbsp;&nbsp; <%= i.from %></div>
+                            <div class="col-md-6 element to">To: &nbsp;&nbsp; <%= i.to %></div>
+                        </div>
+                        <div class="row row2">
+                            <div class="col-md-6 element date">Date: &nbsp;&nbsp; <%= new Date(i.date).toLocaleDateString() %></div>
+                            <div class="col-md-6 element time">Train Number: &nbsp;&nbsp; <%= i.Trainnumber %></div>
+                        </div>
+                    </div>
+                    <div class="del"><a href="/deleteRequestTrain/<%=i._id%>"><i class="fa-solid fa-trash fa-2xl" style="color: #d10000;"></i></a></div>
+                </div>
+            <% }); %>
+        <%}else{%>
+            <div class="row panel">
+                <p>No Request for Train.</p>
+            </div>
+        <%}%>
+
+        <p class="reqtype">Cab</p>
+
+        <%if(cab.length!==0){%>
+            <% cab.forEach(function(i) { %>
+                <div class="d-flex">
+                    <div class="row panel">
+                        <!-- from, to, date, time, mode of transport, matched(or not) -->
+                        <div class="d-flex row row1">
+                            <div class="col-md-4 element from">From: &nbsp;&nbsp; <%= i.from %></div>
+                            <div class="col-md-4 element to">To: &nbsp;&nbsp; <%= i.to %></div>
+                            <div class="col-md-4 element date">Date: &nbsp;&nbsp; <%= new Date(i.date).toLocaleDateString() %></div> 
+                        </div>
+                        <div class="row row2">
+                            <div class="col-md-4 element time">Time: &nbsp;&nbsp; <%= i.time %></div>
+                            <div class="col-md-4 element vacant space">Vacant Space: &nbsp;&nbsp; <%= i.vacantspace %></div>
+                            <div class="col-md-4 element fare share">Fare Share: &nbsp;&nbsp; <%= i.fareShare %></div>
+                        </div>
+                    </div>
+                    <div class="del"><a href="/deleteRequestCab/<%=i._id%>"><i class="fa-solid fa-trash fa-2xl" style="color: #d10000;"></i></a></div>
+                </div>
+            <% }); %>
+        <%}else{%>
+            <div class="row panel">
+                <p>No Request for Cab.</p>
+            </div>
+        <%}%>
+
+        
+    </div>
+    <a href="/backhome" class="options home-link">&#8592; Back to Home</a> <br> <br>
+</body>
+</html>

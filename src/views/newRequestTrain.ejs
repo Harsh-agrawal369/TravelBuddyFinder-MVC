@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/newRequest.css">
+</head>
+
+<body>
+
+
+    <nav>
+        <img src="Code\images\logo1.png" alt="" style="width: 110px; border-radius: 80px;">
+    </nav>
+
+    <div>
+        <h1
+            style="font-size: 3.3em; text-align: center; color: rgb(0, 0, 0); font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            New Request</h1> <br><br>
+
+        <div class="container" id="request-box">
+            <form action="/newRequestTrain" method="post">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label>From:</label>
+                            <input type="text" name="from">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>To:</label>
+                            <input type="text" name="to">
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+
+                            <div class="col-md-6">
+                                <label>Date:</label>
+                                <input type="date" name="date" >
+                            </div>
+
+                            <div class="col-md-6">
+                                <label>Time:</label>
+                                <input type="time" style="width:200px; text-align: center;" name="time">
+                            </div>
+
+                            <!-- <div class="col-md-4">
+                                <label>Vacant space: &nbsp;</label>
+                                <input type="number" style="width: 120px;" name="Vacancy">
+                            </div> -->
+
+                            <!-- <div class="col-md-4">
+                                <label>Mode of Travel:</label> <br>
+                                <input type="radio" name="mode" value="Cab" style=" width: 15px;">
+                                <label for="Cab">Cab</label><br>
+                                <input type="radio" name="mode" value="Train" style=" width: 15px;">
+                                <label for="Train">Train</label><br>
+                                <input type="radio" name="mode" value="Flight" style=" width: 15px;">
+                                <label for="Flight">Flight</label>
+                            </div> -->
+
+                    </div>
+
+                    <div class="row">
+
+                            <!-- <div class="col-md-6">
+                                <label>Gender Specification:</label>
+                                <label><input type="radio" name="genderspec" id="" value="Same" style=" width: 15px;"> Same</label>
+                                <label><input type="radio" name="genderspec" id="" value="Any" style=" width: 15px;"> Any</label>
+                            </div> -->
+
+                            
+                            <div class="col-md-6">
+                                <label>Train Number:</label>
+                                <input type="number" name="trainnumber" id="" style="width: 150px">
+                            </div>
+
+                            <div class="col-md-6" >
+                                <label>Class: </label>
+                                <select name="class" class="travel-info" style="padding: 7px;text-align: center; background-color: rgba(4, 4, 4, 0.386); border: 1px solid white;border-radius: 8px; width: 200px;">
+                                    <option value="">-- Select --</option>
+                                    <option value="sleeper">Sleeper</option>
+                                    <option value="third ac">Third AC</option>
+                                    <option value="Second ac">Second AC</option>
+                                    <option value="first ac">First AC</option>
+                                </select>
+                            </div>
+
+                            <div class="row" style="margin-bottom: 50px;">
+                                <div class="col">
+                                    <button style="width: 200px; padding: 10px;">SUBMIT</button>
+                            </div>
+
+                    </div>
+
+            </form>
+        </div>
+    </div>
+
+    <a href="/backhome" class="options home-link">&#8592; Back to Home</a> <br> <br>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      rel="stylesheet"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="./styles/login.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <span style="margin-top: 10px">
+      <img
+        alt=""
+        src="../images/brand-icon/logo-small.png"
+        style="
+          float: left;
+          width: 136px;
+          margin-right: 11px;
+          border-radius: 31px;
+          padding: 1px;
+          margin-left: 10px;
+        "
+      />
+
+      <h1 style="text-align: right; padding-right: 7%; font-size: 5.1em">
+        Travel Buddy Finder
+      </h1>
+    </span>
+
+    <br /><br /><br /><br /><br /><br /><br />
+    <br /><br />
+
+    <div class="container-fluid" id="main">
+      <div class="row" style="text-align: center; margin: 0 110px 0 110px">
+        <div class="col-md-6" id="txt">
+          <h1 style="font-size: 3.4em">
+            Tired of Travelling alone?<br />Need a buddy to accompany you?
+          </h1>
+          <br />
+          <br />
+          <h2 style="font-size: 2em">
+            Travel Buddy Finder helps you with getting a perfect partner to
+            accompany tour journey. Our platform connects like-minded travelers
+            from around the world, making it easy to find your perfect travel
+            buddy.<br />Our user-friendly interface allows you to easily connect
+            with fellow travelers from around the globe, creating lasting
+            memories and forging new friendships along the way. <br /><br />
+            Create a profile, search for compatible matches, and start planning
+            your next adventure together!
+          </h2>
+          <br />
+        </div>
+
+        <div class="col-md-6" id="login-sec">
+          <h1 style="font-size: 3.2em"><b>Login</b></h1>
+          <h2><span style="color: rgb(87, 173, 243); text-shadow: 1px 1px 1px black;">Sign-in</span> to Continue</h2>
+          <div class="input-field">
+            <% if (errorMessage) { %>
+              <p style="color: rgb(209, 4, 4); font-size: 25px; text-align: center;"><%= errorMessage %></p>
+            <% } %>
+          </div>
+          <br /><br />
+
+          <form action="/login" method="post">
+            <label>EMAIL</label> <br />
+            <input required type="email" name="email" />
+
+            <br /><br /><br />
+
+            <label>PASSWORD</label> <br />
+            <input required type="password" name="password" /> <br /><br />
+            <div class="remember-me" style="padding-bottom: 0px">
+              <input
+                type="checkbox"
+                id="rememberMe"
+                name="rememberMe"
+                style="padding-bottom: 0px"
+              />
+              <label for="rememberMe"
+                ><p style="font-size: 20px">Remember Me</p>
+              </label>
+            </div>
+            <div class="need-help" style="padding-bottom: 4px">
+              <a href="/help"
+                ><p style="color:  rgb(87, 173, 243); font-size: 20px">
+                  Need Help?
+                </p></a
+              >
+            </div>
+
+            <!-- <div class="input-field">
+              <% if (errorMessage) { %>
+              <p
+                style="
+                  color: rgb(209, 4, 4);
+                  font-size: 25px;
+                  text-align: center;
+                "
+              >
+                <%= errorMessage %>
+              </p>
+              <% } %>
+            </div> -->
+
+            <button id="submit-btn" type="submit">Log In</button>
+            <br />
+            <p style="font-size: 1.2em; padding-top: 4px">
+              Don't have an account -
+              <a class="sign-up-link" href="/signup">Sign-Up</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
