@@ -88,10 +88,40 @@ const UpdatePassword = async (req,res) => {
     }
 }
 
+const Editdetails = async (req,res) => {
+    try{
+        const {name , contact, gender} = req.body;
+
+        if(name!=""){
+            await Register.findOneAndUpdate(
+                {_id: req.session.user_id},
+                {$set: {Name: name}}
+            );
+        }
+        if(contact!=""){
+            await Register.findOneAndUpdate(
+                {_id: req.session.user_id},
+                {$set: {Contact: contact}}
+            );
+        }
+        if(gender!="Gender"){
+            await Register.findOneAndUpdate(
+                {_id: req.session.user_id},
+                {$set: {Gender: gender}}
+            );
+        }
+        const user = await Register.findOne({_id: req.session.user_id});
+        res.render("myprofile",{name: user.Name, data: user, Message: "Details Updated Successfully!"})
+    }catch(err){
+        console.log(err);
+        res.render("login", {errorMessage: "Internal server error"});
+    }
+}
 
 // Exporting Functions
 module.exports = {
     Signup, 
     Login, 
-    UpdatePassword
+    UpdatePassword,
+    Editdetails
 };

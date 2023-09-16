@@ -90,7 +90,7 @@ UserRoute.get("/backhome", Auth.isLogin, async (req,res) => {
 UserRoute.get("/myprofile", Auth.isLogin, async (req,res) => {
   
     const user = await Register.findOne({ _id: req.session.user_id });
-    res.render("myprofile", {name: user.Name, data: user});
+    res.render("myprofile", {name: user.Name, data: user, Message: null});
 })
   
 //Rendering Change pass
@@ -110,5 +110,8 @@ UserRoute.post("/login", controller.Login);
 
 //Rendering UpdatePassword Post Request
 UserRoute.post("/updatepass", controller.UpdatePassword);
+
+//Rendering Edit Details Post Request
+UserRoute.post("/editDetails", controller.Editdetails);
 
 module.exports=UserRoute;
