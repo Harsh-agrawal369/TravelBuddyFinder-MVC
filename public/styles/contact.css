@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+body {
+    background-image: url(../images/background/bg-large.jpg);
+    background-size: cover;
+    background-attachment:fixed;
+    color: white;
+}
+
+nav > a {
+    text-decoration: none;
+    margin: 30px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav > a > img {
+    border-left: 1px solid white;
+    padding-left: 45px;
+}
+
+.profile{
+    border-left: 1px solid white;
+    padding-left: 45px; 
+    padding-right: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.24em;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #00000092;
+    min-width: 160px;
+    height: 167px;
+    box-shadow: 3px 4px 6px rgba(0,0,0,0.7);
+    z-index: 1;
+    border-radius: 8px;
+    font-size: 1.05em;
+}
+
+.dropdown-content a {
+    color: rgba(253, 248, 248, 0.921);
+    padding: 15px 16px;
+    text-decoration: none;
+    display: block;
+}
+.logout-btn{
+    transition: color 0.6s, font-weight 0.3s, text-shadow 0.5s;
+}
+.logout-btn:hover{
+    color: rgb(254, 48, 48);
+    font-weight: 530;
+    text-shadow: 1px 1px 1px black;
+}
+
+.dropdown-content a:hover {
+    background-color: #00000064;
+    border-radius: 8px;
+}
+
+.profile:hover .dropdown-content {
+    display: block;
+}
+
+.header {
+    background-color: rgba(41, 41, 41, 0.516);
+    padding-bottom: 24px;
+}
+
+.section{
+    margin: 5% 15% 0% 15%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    max-width: 62%;
+    text-align: center;
+    padding: 0px;
+    border-radius: 2px;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.607);
+}
+.panel{
+    border: none;
+    font-size: 1.27em;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+input{
+    border: none;
+    border-bottom: 1px black solid;
+    padding: 5px;
+}
+
+button{
+    width: 36%;
+    border: none;
+    padding: 10px 0;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.333);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.528);
+    transition: background-color 0.2s;
+}
+button:hover{
+    background-color: rgba(30, 109, 255,0.7);
+}
+button>span{
+    font-size: 1.13em;
+    font-weight: 500;
+}
+
+.options{
+    font-size: 1.4em;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.214);
+    color: rgba(23, 24, 23, 0.731);
+}
+
+.home-link{
+    position: absolute;
+    bottom: 0px;
+    padding-left: 2%;
+    width: 188px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    border-radius: 0px 16px 0px 0px;
+    transition: font-size 0.5s, width 0.5s;
+    color: white;
+}
+.home-link:hover{
+    font-size: 1.4em;
+    width: 204px;
+}
+h1{
+    text-align: center;
+    color: white;
+}
+
+
+.social{
+    /* background-image: linear-gradient(to right, rgba(254, 28, 28, 0.626),rgba(182, 66, 131, 0.725)); */
+    background-color: rgba(0, 0, 0, 0.333);
+    color: white;
+    padding: 0px;
+    border: none;
+    margin: 0px;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(41, 40, 40, 0.26);
+    width: 100%;
+    border-radius: 1px;
+}
+
+.social>div{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 210px;
+    height: 40px;
+    align-content: space-between;
+    text-align: center;
+}
+
+.social>div>div>img{
+    width: 30px;
+}
+
+.name{
+    font-size: 1.59em;
+    color: black;
+}
+.link{
+    font-size: 0.86em;
+}
+
+.item-row{
+    text-align: center;
+    width: 100%;
+}

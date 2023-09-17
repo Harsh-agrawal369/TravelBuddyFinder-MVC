@@ -47,12 +47,12 @@ UserRoute.get("/signup", Auth.isLogout, (req,res) => {
 })
 
 //Rendering Faq
-UserRoute.get("/faq",Auth.isLogin, (req, res) => {
+UserRoute.get("/faq", (req, res) => {
     res.render("faq");
 })
 
 //Rendering About Page
-UserRoute.get("/about", Auth.isLogin, (req, res) => {
+UserRoute.get("/about", (req, res) => {
     res.render("about");
 })
   
@@ -99,6 +99,10 @@ UserRoute.get("/changepass", Auth.isLogin, async (req,res) => {
     res.render("changepass", {name: user.Name, error: null});
 })
 
+//Getting Get Request
+UserRoute.get("/contact", async (req,res) => {
+  res.render("contact");
+})
 
 //All Post Requests
 
