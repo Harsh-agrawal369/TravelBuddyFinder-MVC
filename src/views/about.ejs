@@ -14,14 +14,19 @@
 <body>
     <nav>
         <a href="/index">Home</a>
-        <a href="/contact">Contact Us</a>
+        <a href="#">Contact Us</a>
     </nav>
 
     <h1 class="intro" style="text-align: center;">About Us <br>
         <p>Travel Buddy Finder</p>
-    </h1>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br>
+    </h1>
+    <h2 style="text-align: center; color: white; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 1px 2px 2px black;">Go and check who we are and what we do!!!</h2> <br>
+    <p class="message">Scroll Down <br> &darr;</p>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
     <div class="content1" style="text-align: center;">
         <h1>Genesis of the Idea: How Travel Buddy Finder Came to Be</h1>
@@ -85,6 +90,21 @@
     <footer>
         With Love <b style="color: red;">&#10084;</b>, Wishing you a safe and memorable journey
     </footer>
+
+
+    <script>
+        // Get the first element with the class "message"
+        const scrollDownPara = document.querySelector('.message');
+    
+        scrollDownPara.addEventListener('click', function(){
+            const scrollPosition = window.scrollY + window.innerHeight * 1.1;
+            window.scrollTo({
+                top: scrollPosition,
+                behavior: 'smooth' // This provides a smooth scrolling effect
+            });
+        });
+    </script>
+    
 </body>
 
 </html>

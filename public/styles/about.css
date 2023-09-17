@@ -7,16 +7,16 @@ body{
 }
 
 nav{
-    padding: 25px 0px 45px 0;
+    padding: 22px 0px 45px 0;
     text-align: center;
-    margin-bottom: 20%;
+    margin-bottom: 16%;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.879), rgba(0, 0, 0, 0.017));
 }
 nav>a{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
-    font-size: 1.81em;
-    margin: 0px 55px 0 55px;
+    font-size: 1.61em;
+    margin: 0px 85px 0 85px;
     text-decoration: none;
     padding: 6px 18px;
     border-radius: 45px;
@@ -26,7 +26,7 @@ nav>a:hover{
     color: black;
     font-size: 1.67em;
     text-decoration: none;
-    background-color: rgba(0, 0, 0, 0.62);
+    background-color: black;
     color: white;
 }
 .intro{
@@ -94,4 +94,19 @@ footer{
     padding: 78px 42px;
     border-radius: 100%;
     background-color: rgb(144, 212, 41);
+}
+
+.message{
+    text-shadow: 2px 2px 2px black;
+    color: white;
+    text-align: center;
+    font-size: 0.97em;
+    background-color: rgba(0, 0, 0, 0.497);
+    margin: 0px 47%;
+    padding: 2px 0;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.345);
+}
+.message:hover{
+    cursor: pointer;
 }
