@@ -97,12 +97,12 @@ button{
     border: none;
     padding: 10px 0;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.333);
+    background-color: rgba(48, 160, 0, 0.589);
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.528);
     transition: background-color 0.2s;
 }
 button:hover{
-    background-color: rgba(30, 109, 255,0.7);
+    background-color: rgba(48, 160, 0, 1);
 }
 button>span{
     font-size: 1.13em;
@@ -138,7 +138,7 @@ h1{
 
 .social{
     /* background-image: linear-gradient(to right, rgba(254, 28, 28, 0.626),rgba(182, 66, 131, 0.725)); */
-    background-color: rgba(0, 0, 0, 0.333);
+    background-color: rgba(48, 160, 0, 0.589);
     color: white;
     padding: 0px;
     border: none;

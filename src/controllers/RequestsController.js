@@ -110,7 +110,10 @@ const SearchCab = async (req, res) => {
           { vacantspace: { $gte: numberofpassenger } },
         ]
       });
-  
+
+      if(time === null || time === undefined || time===""){
+        return res.render("requests", {name: user.Name, data: reqs, mode: "cab"});
+      }
       const request = [];
       var i=0, count=0;
   
