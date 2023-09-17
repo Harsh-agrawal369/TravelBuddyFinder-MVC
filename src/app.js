@@ -1,4 +1,5 @@
 //npm run dev
+require('dotenv').config()
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -9,6 +10,7 @@ const { default: mongoose } = require("mongoose");
 const UserRoute = require("./Routes/UserRoute");
 const ReviewRoute = require("./Routes/ReviewRoute");
 const RequestRoute= require("./Routes/RequestRoute");
+
 
 
 app.use(express.json());
