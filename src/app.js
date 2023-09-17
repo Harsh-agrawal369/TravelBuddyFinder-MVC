@@ -31,3 +31,4 @@ app.listen(PORT, () => {
   console.log(`server is running at port: ${PORT}`);
 })
 
+// "node": ">= 0.6"
