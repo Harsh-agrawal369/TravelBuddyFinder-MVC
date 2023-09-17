@@ -1,0 +1,19 @@
+{
+    "name": "backend",
+    "version": 2,
+    "builds": [
+      {
+        "src": "app.js", 
+        "use": "@now/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "src/app.js"
+      }
+    ],
+    "env": {
+      "DATABASE_URL": "mongodb+srv://agrawalharsh831:RJixirMhmEt6MatY@cluster0.nluxsoo.mongodb.net/"
+    }
+}
