@@ -18,6 +18,7 @@ ContactRoute.use((req, res, next) => {
   next();
 });
 
+
 //Creating session
 ContactRoute.use(cookieParser());
 ContactRoute.use(session({
