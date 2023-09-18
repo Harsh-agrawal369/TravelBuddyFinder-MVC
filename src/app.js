@@ -10,6 +10,7 @@ const { default: mongoose } = require("mongoose");
 const UserRoute = require("./Routes/UserRoute");
 const ReviewRoute = require("./Routes/ReviewRoute");
 const RequestRoute= require("./Routes/RequestRoute");
+const ContactRoute= require("./Routes/ContactRoute");
 
 
 
@@ -27,6 +28,7 @@ app.set('views', path.join(__dirname, "./views"));
 app.use("/", UserRoute);
 app.use("/", ReviewRoute);
 app.use("/", RequestRoute);
+app.use("/", ContactRoute);
 
 //Listening the Posrt
 app.listen(PORT, () => {

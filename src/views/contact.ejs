@@ -27,48 +27,54 @@
 
 
     <h1 style="color: rgba(0, 0, 0,0.990); text-shadow: 1px 1px 1px black;font-size: 3.1em; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">We Would Love to Hear From You :)</h1>
-<form action="">
+
     <div class="container-fluid section">
         <div class="row panel" style="border: none; margin-bottom: 0px;">
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-12" style="font-size: 2em; font-weight: 550;" >
-                        <br>
-                        Get In Touch
+            <div class="col-md-8" id="contact-success-message" style="display: none;">Thank you for your Response!<br>
+                <p>We highly appreciate your time and efforts!<br>
+                Your Query will be resolved soon.</p>
+            </div>
+            <div class="col-md-8" id="contact">
+                <form action="/submitcontact" method="post">
+                    <div class="row">
+                        <div class="col-md-12" style="font-size: 2em; font-weight: 550;">
+                            <br>
+                            Get In Touch
+                        </div>
                     </div>
-                </div>
-                <br><br><br>
-                <div class="row">
-                    <div class="col-md-6">
-                        <input type="text" placeholder="First Name">
+                    <br><br><br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" placeholder="First Name" name="firstname">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Last Name" name="lastname">
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" placeholder="Last Name">
+                    <br><br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Email" name="email">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" placeholder="Mobile Number" name="contact">
+                        </div>
                     </div>
-                </div>
-                <br><br>
-                <div class="row">
-                    <div class="col-md-6">
-                        <input type="text" placeholder="Email">
+                    <br><br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input name="message" type="text" placeholder="Enter your message here" style="width: 80%; border: 1px solid rgba(0, 0, 0, 0.692); border-radius: 5px; padding: 17px;">
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" placeholder="Mobile Number">
-                    </div>
-                </div>
-                <br><br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <input type="text" placeholder="Enter your message here" style="width: 80%; border: 1px solid rgba(0, 0, 0, 0.692); border-radius: 5px;
-                        padding: 17px;">
-                    </div>
-                </div>
-                <br><br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <button style="border-radius: 8px;"> <span>SUBMIT</span> </button> <br><br>
-                    </div>
-                </div>
-            </div> 
+                    <br><br>
+                    <button style="border-radius: 8px;" onclick="changeContactSection()" type="submit"> <span>SUBMIT</span> </button> <br><br>
+                    <!-- <div class="row">
+                        <div class="col-md-12">
+                            <button style="border-radius: 8px;" onclick="changeContactSection()"> <span>SUBMIT</span> </button> <br><br>
+                        </div>
+                    </div> -->
+                </form>
+            </div>            
             <div class="col-md-4 social" style="border-left: 0px solid rgba(0, 0, 0, 0.264);">
                 <br><br>
                 <div class="row" style="width: 100%;">
@@ -96,10 +102,20 @@
 
             </div>
         </div>
-
     </div>
-</form>
     <br> <br>
     <a href="/backhome" class="options home-link">&#8592; Back to Home</a> <br> <br>
+
+    <script>
+        function changeContactSection() {
+            // Hide the Contact section
+            document.getElementById("contact").style.display = "none";
+            
+            // Show the success message
+            const successMessage = document.getElementById("contact-success-message");
+            successMessage.style.display = "block";
+            // Optionally, you can redirect to another page or perform additional actions here
+        }
+    </script>
 </body>
 </html>

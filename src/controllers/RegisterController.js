@@ -118,10 +118,11 @@ const Editdetails = async (req,res) => {
     }
 }
 
+
 // Exporting Functions
 module.exports = {
     Signup, 
     Login, 
     UpdatePassword,
-    Editdetails
+    Editdetails,
 };

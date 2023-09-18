@@ -118,4 +118,6 @@ UserRoute.post("/updatepass", controller.UpdatePassword);
 //Rendering Edit Details Post Request
 UserRoute.post("/editDetails", controller.Editdetails);
 
+
+
 module.exports=UserRoute;

@@ -3,6 +3,7 @@ const Register= require("../models/register");
 
 const PostReview = async (req,res) => {
     try {
+      console.log(req.body);
       const user = await Register.findOne({ _id: req.session.user_id });
       console.log(req.session.user_id);
   
