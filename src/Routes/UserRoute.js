@@ -94,14 +94,18 @@ UserRoute.get("/myprofile", Auth.isLogin, async (req,res) => {
 })
   
 //Rendering Change pass
-UserRoute.get("/changepass", Auth.isLogin, async (req,res) => {
-    const user= await Register.findOne({ _id: req.session.user_id });
-    res.render("changepass", {name: user.Name, error: null});
+UserRoute.get("/changepass", async (req,res) => {
+    res.render("changepass", {error: null});
 })
 
 //Getting Get Request
 UserRoute.get("/contact", async (req,res) => {
   res.render("contact");
+})
+
+//Rendering Forgot Password Request
+UserRoute.get("/forgotPassword", Auth.isLogout, async (req,res) => {
+  res.render("forgotPassword", {error: null});
 })
 
 //All Post Requests
@@ -117,6 +121,9 @@ UserRoute.post("/updatepass", controller.UpdatePassword);
 
 //Rendering Edit Details Post Request
 UserRoute.post("/editDetails", controller.Editdetails);
+
+//Rendering Reset Password post Request
+UserRoute.post("/resetPassword", controller.ResetPassword);
 
 
 
