@@ -71,7 +71,7 @@ if(process.env.DEPLOYMENT_STATUS == "development"){
 passport.serializeUser((req,user,done) => {
     try{
         req.session.user_id = user._id;
-        done(null, user._id);
+        done(null, {_id: user._id});
     }catch(err){
         console.log(err);
         done(err);
