@@ -45,6 +45,7 @@ if(process.env.DEPLOYMENT_STATUS === "development"){
     },
     async function(req, accessToken, refreshToken,profile, done){
         try{
+            console.log(profile);
             const user = await Register.findOne({Email: profile.email});
 
             if(user){
@@ -81,6 +82,9 @@ passport.serializeUser((req,user,done) => {
 passport.deserializeUser((id, done) => {
     Register.findById(id).then((user) => {
         done(null, user);
+    }).catch(err => {
+        console.error(err);
+        done(err);
     });
 });
 
