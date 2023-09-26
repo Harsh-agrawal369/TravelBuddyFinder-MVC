@@ -1,8 +1,10 @@
+require("../middleware/googleAuth");
 const express = require("express");
 const UserRoute = express();
 const path = require("path");
 const bodyparser= require("body-parser");
 const Register = require("../models/register");
+const passport = require("passport");
 
 UserRoute.use(bodyparser.json());
 UserRoute.use(bodyparser.urlencoded({extended:true}));
@@ -22,6 +24,10 @@ UserRoute.use(session({
   saveUninitialized: true,
   secret: config.sessionSecret
 }))
+
+//Using Passport Libraries Methods
+UserRoute.use(passport.initialize());
+UserRoute.use(passport.session());
 
 UserRoute.use((req, res, next) => {
   // Middleware logic for UserRoute
@@ -107,6 +113,31 @@ UserRoute.get("/contact", async (req,res) => {
 UserRoute.get("/forgotPassword", Auth.isLogout, async (req,res) => {
   res.render("forgotPassword", {error: null});
 })
+
+
+//Google Authentiaction Routes
+
+UserRoute.get('/SignInWithGoogle',
+  passport.authenticate('google', { scope:
+      [ 'email', 'profile' ] }
+));
+
+UserRoute.get( '/auth/google/callback',
+    passport.authenticate( 'google', {
+        successRedirect: '/auth/protected',
+        failureRedirect: '/auth/failure',
+}));
+
+UserRoute.get('/auth/protected', Auth.isLogin, async (req,res) => {
+  res.redirect("/index");
+});
+
+UserRoute.get('/auth/failure', async (req,res) => {
+  res.redirect("/logout");
+});
+
+
+
 
 //All Post Requests
 

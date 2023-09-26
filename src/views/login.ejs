@@ -41,18 +41,19 @@
       </h1>
     </span>
 
-    <br /><br /><br /><br /><br /><br /><br />
-    <br /><br />
+    <br /><br /><br /><br /><br /><br /><br /> <br/>
+    
 
     <div class="container-fluid" id="main">
-      <div class="row" style="text-align: center; margin: 0 110px 0 110px">
+      <div class="row" style="text-align: center; margin: 0 60px 0 110px">
+       
         <div class="col-md-6" id="txt">
-          <h1 style="font-size: 3.4em">
+          <h1 style="font-size: 3.2em">
             Tired of Travelling alone?<br />Need a buddy to accompany you?
           </h1>
           <br />
           <br />
-          <h2 style="font-size: 2em">
+          <h2 style="font-size: 1.95em">
             Travel Buddy Finder helps you with getting a perfect partner to
             accompany tour journey. Our platform connects like-minded travelers
             from around the world, making it easy to find your perfect travel
@@ -66,23 +67,27 @@
         </div>
 
         <div class="col-md-6" id="login-sec">
-          <h1 style="font-size: 3.2em"><b>Login</b></h1>
-          <h2><span style="color: rgb(87, 173, 243); text-shadow: 1px 1px 1px black;">Sign-in</span> to Continue</h2>
+          <h1 style="font-size: 3.2em"><b>Login</b></h1><br/>
+          <!-- <h2><span style="color: rgb(87, 173, 243); text-shadow: 1px 1px 1px black;">Sign-in</span> to Continue</h2> -->
+          <a href="/SignInWithGoogle">
+            <button type="button" class="login-with-google-btn" >
+                Sign in with Google
+            </button>
+          </a>
+          <h4>&nbsp;or&nbsp;</h4>
           <div class="input-field">
             <% if (errorMessage) { %>
-              <p style="color: rgb(209, 4, 4); font-size: 25px; text-align: center;"><%= errorMessage %></p>
+              <p style="color: rgb(209, 4, 4); font-size: 20px; text-align: center;"><%= errorMessage %></p>
             <% } %>
           </div>
-          <br /><br />
-
           <form action="/login" method="post">
             <label>EMAIL</label> <br />
-            <input required type="email" name="email" />
+            <input required type="email" name="email" placeholder="Enter Registered Email" />
 
-            <br /><br /><br />
+            <br /><br />
 
             <label>PASSWORD</label> <br />
-            <input required type="password" name="password" /> <br /><br />
+            <input required type="password" name="password" placeholder="Enter your Password"/> <br /><br />
             <div class="remember-me" style="padding-bottom: 0px">
               <a href="/forgotPassword" style="font-size: 1.5em; color: rgb(220, 220, 220);">Forgot password?</a>
             </div>
