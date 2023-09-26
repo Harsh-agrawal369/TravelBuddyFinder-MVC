@@ -52,7 +52,7 @@ if(process.env.DEPLOYMENT_STATUS === "development"){
                 return done(null, user);
             }else{
                 try{
-                    const NewUser = new Register({Email: profile.email, Name: profile.displayName, Gender: profile.gender, Contact: profile.phone_number});
+                    const NewUser = new Register({Email: profile.email, Name: profile.displayName, Gender: profile.gender, Contact: profile.phone_number || ''});
                     const Nuser = await NewUser.save();
                     return done(null, Nuser);
                 }catch(err){
