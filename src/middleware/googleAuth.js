@@ -3,7 +3,7 @@ const GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 const dotenv = require("dotenv");
 const Register = require("../models/register");
 
-if(process.env.DEPLOYMENT_STATUS == "development"){
+if(process.env.DEPLOYMENT_STATUS === "development"){
     passport.use(new GoogleStrategy ({
         clientID: process.env.GOOGLE_OAUTH_CLIENTID_DEVE,
         clientSecret: process.env.GOOGLE_OAUTH_CLIENTSEC_DEVE,
@@ -35,7 +35,7 @@ if(process.env.DEPLOYMENT_STATUS == "development"){
     }
     
     ));
-} else if(process.env.DEPLOYMENT_STATUS == "Production"){
+} else if(process.env.DEPLOYMENT_STATUS === "Production"){
     passport.use(new GoogleStrategy ({
         clientID: process.env.GOOGLE_OAUTH_CLIENTID_PROD,
         clientSecret: process.env.GOOGLE_OAUTH_CLIENTSEC_PROD,
@@ -71,7 +71,7 @@ if(process.env.DEPLOYMENT_STATUS == "development"){
 passport.serializeUser((req,user,done) => {
     try{
         req.session.user_id = user._id;
-        done(null, {_id: user._id});
+        done(null, user._id);
     }catch(err){
         console.log(err);
         done(err);
