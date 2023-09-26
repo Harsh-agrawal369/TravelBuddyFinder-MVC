@@ -128,7 +128,7 @@ UserRoute.get( '/auth/google/callback',
         failureRedirect: '/auth/failure',
 }));
 
-UserRoute.get('/auth/protected', Auth.isLogin, async (req,res) => {
+UserRoute.get('/auth/protected', async (req,res) => {
   res.redirect("/index");
 });
 
