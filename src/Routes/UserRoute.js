@@ -129,6 +129,7 @@ UserRoute.get( '/auth/google/callback',
 }));
 
 UserRoute.get('/auth/protected', Auth.isLogin, async (req,res) => {
+  console.log(req.user._id);
   res.redirect("/index");
 });
 
