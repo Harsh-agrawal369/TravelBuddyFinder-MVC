@@ -71,6 +71,28 @@ h4:after {
     margin: auto;
 }
 
+/* Css Edit */
+span>h1{
+    font-size: 5.1em;
+    text-align: right;
+    padding-right: 7%;
+    margin-bottom: 5%;
+}
+.row1{
+    text-align: center; margin: 0 110px 0 110px
+}
+.logo-img{
+    float: left;
+    width: 136px;
+    margin-right: 11px;
+    border-radius: 31px;
+    padding: 1px;
+    margin-left: 10px;
+}
+span{
+    margin-bottom: 10%;
+}
+
 .login-with-google-btn {
     transition: background-color .3s, box-shadow .3s;
       
@@ -112,4 +134,47 @@ h4:after {
       box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
       cursor: not-allowed;
     }
+}
+
+.brHide{
+    display: none;
+}
+
+/* Css Edit Media Query*/
+
+
+@media only screen and (max-width: 600px){
+    body{
+        background-image: url('../images/background/back-phone.png') no-repeat fixed;
+        max-width: 100%;
+    }
+    span>h1{
+        font-size: 2.30em;
+        margin-right: 0%;
+        margin-bottom: 0%;
+    }
+    .logo-img{
+        width: 51px;
+    }
+    #main{
+        font-size: 0.7em;
+        width: 80%;
+    }
+    .row1{
+        margin: 0px;
+    }
+    #login-sec > h4{
+        /* margin-left: 0px; */
+        margin-right: 70%;
+        display: none;
+    }
+    .brHide{
+        display: block;
+    }
+    .login-with-google-btn{
+        margin-bottom: 24px;
+    }
+   
+
+
 }
