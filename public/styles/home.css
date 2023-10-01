@@ -493,7 +493,7 @@ footer {
     margin-left: 23px;
 }
 
-@media only screen and (max-width: 750px){
+@media only screen and (max-width: 600px){
     body{
         background-image: url('../images/background/back-phone.png') no-repeat fixed;
         max-width: 100%;

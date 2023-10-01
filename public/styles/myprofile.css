@@ -168,7 +168,7 @@ select {
     padding-left:10px; text-shadow:1px 1px 1px rgb(7, 8, 0);
 }
 
-@media only screen and (max-width: 750px){
+@media only screen and (max-width: 600px){
 body{
     background-image: url('../images/background/back-phone.png') no-repeat fixed;
     max-width: 100%;
