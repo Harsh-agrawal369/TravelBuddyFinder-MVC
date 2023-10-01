@@ -30,7 +30,7 @@ nav > a > img {
 }
 
 .dropdown-content {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     display: none;
     position: absolute;
     background-color: #00000092;
@@ -552,6 +552,7 @@ footer {
     }
     .dropdown-content{
         display: none;
+        margin-top: 20px;
     }
     .brhide{
         display: none;
