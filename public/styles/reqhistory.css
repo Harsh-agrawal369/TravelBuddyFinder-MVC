@@ -85,6 +85,21 @@ nav > a > img {
     /* text-shadow: 1px 2px 2px black; */
 }
 
+.section-entire1{
+    height: 640px;
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.299);
+    text-align: center;
+    margin: 3.5% 0 1% 25%;
+    width: 50%;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.61);
+    /* text-shadow: 1px 2px 2px black; */
+}
+
 .panel{
     font-weight: 540;
     /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.525); */

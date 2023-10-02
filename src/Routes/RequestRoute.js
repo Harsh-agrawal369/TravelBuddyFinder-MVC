@@ -128,6 +128,24 @@ RequestRoute.get("/deleteRequestFlight/:id", async (req,res) => {
       res.render("login", {errorMessage: "Internal Server Error"})
     }
 })
+
+RequestRoute.get("/save/train/:id", async (req,res) => {
+  try{
+    res.status(204).send();
+  }catch(err){
+    console.log(err);
+    res.render("login", {errorMessage: "Internal Server Error"})
+  }
+})
+
+RequestRoute.get("/Unsave/train/:id", async (req,res) => {
+  try{
+    res.status(204).send();
+  }catch(err){
+    console.log(err);
+    res.render("login", {errorMessage: "Internal Server Error"})
+  }
+})
   
 
 

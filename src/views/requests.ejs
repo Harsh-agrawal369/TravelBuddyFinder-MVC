@@ -12,6 +12,7 @@
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="./styles/requests.css" rel="stylesheet" />
   </head>
 
@@ -34,28 +35,39 @@
                 <%data.forEach(i => { %>
                   <div class="show-data">
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-5">
                         From: <%=i.from%>
                       </div>
                       <div class="col-md-6">
                         To: <%=i.to%>
                       </div>
+                      <div class="col-md-1 Bookmark_int">
+                        <a href="/savetrain/<%=i._id%>" onclick="Bookmark(this)"><i class="fa-regular fa-bookmark fa-xl"></i></a>
+                      </div>
+
+                      <div class="col-md-1 Bookmark_fin">
+                        <a href="/Unsave/<%=i._id%>" onclick="RemoveBookmark(this)"><i class="fa-solid fa-bookmark fa-xl"></i></a>
+                      </div>
                       
                     </div>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-5">
                         Date: <%=new Date(i.date).toLocaleDateString()%>
                       </div>
                       <div class="col-md-6">
                         Train: <%=i.Trainnumber%>
                       </div>
+                      <div class="col-md-1">
+                      </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-5">
                         Class: <%=i.class%>
                       </div>
                       <div class="col-md-6">
                         Contact: <%=i.contact_num%>
+                      </div>
+                      <div class="col-md-1">
                       </div>
                     </div>
                   </div>
@@ -64,28 +76,40 @@
                 <%data.forEach(i => { %>
                   <div class="show-data">
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-5">
                         From: <%=i.from%>
                       </div>
                       <div class="col-md-6">
                         To: <%=i.to%>
                       </div>
+                      <div class="col-md-1 Bookmark_int">
+                        <a href="/saveflight/<%=i._id%>" onclick="Bookmark(this)"><i class="fa-regular fa-bookmark fa-xl"></i></a>
+                      </div>
+
+                      <div class="col-md-1 Bookmark_fin">
+                        <a href="/Unsave/<%=i._id%>" onclick="RemoveBookmark(this)"><i class="fa-solid fa-bookmark fa-xl"></i></a>
+                      </div>
                       
                     </div>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-5">
                         Date: <%=new Date(i.date).toLocaleDateString()%>
                       </div>
                       <div class="col-md-6">
                         Flight: <%=i.Flightnumber%>
                       </div>
+                      <div class="col-md-1">
+                      </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-5">
                         Class: <%=i.class%>
                       </div>
                       <div class="col-md-6">
                         Contact: <%=i.contact_num%>
+                      </div>
+                      <div class="col-md-1">
+                        
                       </div>
                     </div>
                   </div>
@@ -95,36 +119,49 @@
                 <%data.forEach(i => { %>
                   <div class="show-data">
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-5">
                         From: <%=i.from%>
                       </div>
                       <div class="col-md-6">
                         To: <%=i.to%>
                       </div>
+                      <div class="col-md-1 Bookmark_int">
+                        <a href="/savecab/<%=i._id%>" onclick="Bookmark(this)"><i class="fa-regular fa-bookmark fa-xl"></i></a>
+                      </div>
+
+                      <div class="col-md-1 Bookmark_fin">
+                        <a href="/Unsave/<%=i._id%>" onclick="RemoveBookmark(this)"><i class="fa-solid fa-bookmark fa-xl"></i></a>
+                      </div>
                       
                     </div>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-5">
                         Date: <%=new Date(i.date).toLocaleDateString()%>
                       </div>
                       <div class="col-md-6">
                         time: <%=i.time%>
                       </div>
+                      <div class="col-md-1">
+                      </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-5">
                         Vacant Space: <%=i.vacantspace%>
                       </div>
                       <div class="col-md-6">
                         Gender Prefrence: <%=i.genderSpecification%>
                       </div>
+                      <div class="col-md-1">
+                      </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-5">
                         Fare Share: <%=i.fareShare%>
                       </div>
                       <div class="col-md-6">
                         Contact: <%=i.contact_num%>
+                      </div>
+                      <div class="col-md-1">
                       </div>
                     </div>
                   </div>
@@ -159,6 +196,23 @@
       </div>
     </div>
     <a href="/backhome" class="options home-link">&#8592; Back to Home</a> <br> <br>
+    <script>
+
+      function Bookmark(button) {
+          const taskContainer = button.parentElement; 
+          
+          taskContainer.style.display = "none";
+          button.parentElement.nextElementSibling.style.display = "block";
+      }
+
+      function RemoveBookmark(button) {
+          const taskContainer = button.parentElement; 
+          
+          taskContainer.style.display = "none";
+          button.parentElement.previousElementSibling.style.display = "block";
+      }
+
+    </script>
   </body>
 </html>
 
