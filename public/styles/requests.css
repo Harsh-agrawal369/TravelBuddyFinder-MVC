@@ -133,3 +133,13 @@ body {
 .Bookmark_fin{
     display: none;
 }
+
+.show-data1{
+    padding: 16px 0px 16px 4px;
+    margin: 150px 0 0 0;
+    color: rgb(240, 233, 233);
+    font-size: 2em;
+    border: solid black 0px;
+    border-radius: 25px;
+    text-align: center;
+}
