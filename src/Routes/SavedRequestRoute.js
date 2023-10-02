@@ -13,6 +13,8 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const config = require("../config/config");
 
+const controller= require("../controllers/SavedRequestController");
+
 SavedRequestRoute.use(bodyparser.json());
 SavedRequestRoute.use(bodyparser.urlencoded({extended:true}));
 
@@ -78,107 +80,18 @@ SavedRequestRoute.get("/LikedRequest",Auth.isLogin, async (req,res) => {
 });
 
 //Saving Train Request
-SavedRequestRoute.get("/savetrain/:id",Auth.isLogin, async (req,res) => {
-    try{
-        console.log("Hello");
-        const {id} = req.params;
-        const isExist = await SavedRequest.findOne({$and: [{userId: req.session.user_id}, {requestId: id} ]});
-        if(isExist){
-            res.status(204).send();
-        }
-        else{
-            console.log("Hi");
-            const NewLiked = new SavedRequest({
-                userId: req.session.user_id,
-                requestId: id,
-                mode: "train"
-            });
-            const Nliked = await NewLiked.save();
-
-            res.status(204).send();
-        }
-    }catch(err){
-        console.log(err);
-        res.render("/login", {errorMessage: "Internal Server Error"});
-    }
-});
+SavedRequestRoute.get("/savetrain/:id",Auth.isLogin, controller.SaveTrain);
 
 //Saving Flight Request
-SavedRequestRoute.get("/saveflight/:id",Auth.isLogin, async (req,res) => {
-    try{
-        const {id} = req.params;
-        const isExist = await SavedRequest.findOne({$and: [{userId: req.session.user_id}, {requestId: id} ]});
-        if(isExist){
-            res.status(204).send();
-        }
-        else{
-            const NewLiked = new SavedRequest({
-                userId: req.session.user_id,
-                requestId: id,
-                mode: "flight"
-            });
-            const Nliked = await NewLiked.save();
-
-            res.status(204).send();
-        }
-    }catch(err){
-        console.log(err);
-        res.render("/login", {errorMessage: "Internal Server Error"});
-    }
-});
+SavedRequestRoute.get("/saveflight/:id",Auth.isLogin, controller.SaveFlight);
 
 //Saving Cab Request
-SavedRequestRoute.get("/savecab/:id",Auth.isLogin, async (req,res) => {
-    try{
-        const {id} = req.params;
-        const isExist = await SavedRequest.findOne({$and: [{userId: req.session.user_id}, {requestId: id} ]});
-        if(isExist){
-            res.status(204).send();
-        }
-        else{
-            const NewLiked = new SavedRequest({
-                userId: req.session.user_id,
-                requestId: id,
-                mode: "cab"
-            });
-            const Nliked = await NewLiked.save();
-
-            res.status(204).send();
-        }
-    }catch(err){
-        console.log(err);
-        res.render("/login", {errorMessage: "Internal Server Error"});
-    }
-});
+SavedRequestRoute.get("/savecab/:id",Auth.isLogin, controller.SaveCab);
 
 //Removing Request from Saved
-SavedRequestRoute.get("/Unsave/:id",Auth.isLogin, async (req,res) => {
-    try{
-        const {id} = req.params;
-        const isExist = await SavedRequest.findOne({$and: [{userId: req.session.user_id}, {requestId: id} ]});
-        if(!isExist){
-            res.status(204).send();
-        }
-        else{
-            const deleted = await SavedRequest.deleteOne({$and: [{userId: req.session.user_id}, {requestId: id} ]});
-            res.status(204).send();
-        }
-    }catch(err){
-        console.log(err);
-        res.render("/login", {errorMessage: "Internal Server Error"});
-    }
-});
+SavedRequestRoute.get("/Unsave/:id",Auth.isLogin, controller.UnSave);
 
 //Removing Requests from Liked page
-SavedRequestRoute.get("/UnsaveLiked/:id",Auth.isLogin, async (req,res) => {
-    try{
-        const {id} = req.params;
-        const deleted = await SavedRequest.deleteOne({$and: [{userId: req.session.user_id}, {requestId: id} ]});
-        res.redirect("/LikedRequest");
-    }catch(err){
-        console.log(err);
-        res.render("/login", {errorMessage: "Internal Server Error"});
-    }
-});
+SavedRequestRoute.get("/UnsaveLiked/:id",Auth.isLogin, controller.UnsaveLiked);
 
 module.exports=SavedRequestRoute;
