@@ -113,7 +113,21 @@ const SearchCab = async (req, res) => {
       });
 
       if(time === null || time === undefined || time===""){
-        return res.render("requests", {name: user.Name, data: reqs, mode: "cab"});
+        let Liked = [];
+        for (let i = 0; i < reqs.length; i++) {
+          const isLiked = await SavedRequest.findOne({
+            $and: [{ userId: req.session.user_id }, { requestId: reqs[i]._id }],
+          });
+
+          if(isLiked==null){
+            Liked.push(0);
+          }else{
+            Liked.push(1);
+          }
+          // Set Liked to 1 if isLiked is truthy, otherwise set to 0
+        }
+        let count1 =0;
+        return res.render("requests", {name: user.Name, data: reqs, mode: "cab", count: count1, isLiked: Liked});
       }
       const request = [];
       var i=0, count=0;
@@ -148,8 +162,8 @@ const SearchCab = async (req, res) => {
         // Set Liked to 1 if isLiked is truthy, otherwise set to 0
       }
       let count1 =0;
-      console.log(Liked)
-      res.render("requests", {name: user.Name, data: request, count: count1, liked: Liked, mode: "cab" });
+      // console.log(Liked);
+      res.render("requests", {name: user.Name, data: request, count: count1, isLiked: Liked, mode: "cab" });
     } catch (err) {
       console.error(err);
       res.status(500).json({ errorMessage: "Internal server error!" });
