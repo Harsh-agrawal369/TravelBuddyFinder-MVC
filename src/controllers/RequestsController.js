@@ -1,5 +1,6 @@
 const Request = require("../models/requests");
 const Register= require("../models/register");
+const SavedRequest = require("../models/SavedRequests");
 
 //New Request For Cab
 const AddCabRequest = async (req, res) => {
@@ -133,8 +134,22 @@ const SearchCab = async (req, res) => {
         }
       }
       
-  
-      res.render("requests", {name: user.Name, data: request, mode: "cab"});
+      let Liked = [];
+      for (let i = 0; i < request.length; i++) {
+        const isLiked = await SavedRequest.findOne({
+          $and: [{ userId: req.session.user_id }, { requestId: request[i]._id }],
+        });
+
+        if(isLiked==null){
+          Liked.push(0);
+        }else{
+          Liked.push(1);
+        }
+        // Set Liked to 1 if isLiked is truthy, otherwise set to 0
+      }
+      let count1 =0;
+      console.log(Liked)
+      res.render("requests", {name: user.Name, data: request, count: count1, liked: Liked, mode: "cab" });
     } catch (err) {
       console.error(err);
       res.status(500).json({ errorMessage: "Internal server error!" });
@@ -142,20 +157,36 @@ const SearchCab = async (req, res) => {
 }
 
 //Search query For Train
-const SearchTrain = async  (req, res) => {
-    const {departure_date, TrainNumber} = req.body;
-  
-    try{
-      const reqs = await Request.RequestsTrain.find({$and: [{date: departure_date}, {Trainnumber: TrainNumber} ] });
-      const user = await Register.findOne({_id: req.session.user_id});
-      res.render("requests", {name: user.Name, data: reqs, mode: "train"});
-  
-    } catch(err){
-      console.log(err);
-      res.render("login", {errorMessage: "Something went Wrong! "});
+const SearchTrain = async (req, res) => {
+  const { departure_date, TrainNumber } = req.body;
+
+  try {
+    const reqs = await Request.RequestsTrain.find({
+      $and: [{ date: departure_date }, { Trainnumber: TrainNumber }],
+    });
+    const user = await Register.findOne({ _id: req.session.user_id });
+
+    let Liked = [];
+    for (let i = 0; i < reqs.length; i++) {
+      const isLiked = await SavedRequest.findOne({
+        $and: [{ userId: req.session.user_id }, { requestId: reqs[i]._id }],
+      });
+
+      if(isLiked==null){
+        Liked.push(0);
+      }else{
+        Liked.push(1);
+      }
+       // Set Liked to 1 if isLiked is truthy, otherwise set to 0
     }
-    
-}
+    let count =0;
+    res.render("requests", { name: user.Name, data: reqs, mode: "train", count: count, isLiked: Liked });
+  } catch (err) {
+    console.log(err);
+    res.render("login", { errorMessage: "Something went Wrong! " });
+  }
+};
+
 
 //Search Query for Flight
 const SearchFlight = async  (req, res) => {
@@ -164,7 +195,22 @@ const SearchFlight = async  (req, res) => {
     try{
       const reqs = await Request.RequestsFlight.find({$and: [{date: departure_date}, {Flightnumber: flightNumber} ] });
       const user = await Register.findOne({_id: req.session.user_id});
-      res.render("requests", {name: user.Name, data: reqs, mode: "flight"});
+
+      let Liked = [];
+      for (let i = 0; i < reqs.length; i++) {
+        const isLiked = await SavedRequest.findOne({
+          $and: [{ userId: req.session.user_id }, { requestId: reqs[i]._id }],
+        });
+
+        if(isLiked==null){
+          Liked.push(0);
+        }else{
+          Liked.push(1);
+        }
+        // Set Liked to 1 if isLiked is truthy, otherwise set to 0
+      }
+      let count =0;
+      res.render("requests", {name: user.Name, data: reqs, mode: "flight", count: count, isLiked: Liked});
   
     } catch(err){
       console.log(err);

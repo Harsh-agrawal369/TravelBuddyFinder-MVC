@@ -47,13 +47,26 @@
                         <div class="col-md-6">
                           To: <%=i.to%>
                         </div>
-                        <div class="col-md-1 Bookmark_int">
-                          <a href="/savetrain/<%=i._id%>" onclick="Bookmark(this)"><i class="fa-regular fa-bookmark fa-xl"></i></a>
-                        </div>
-  
-                        <div class="col-md-1 Bookmark_fin">
-                          <a href="/Unsave/<%=i._id%>" onclick="RemoveBookmark(this)"><i class="fa-solid fa-bookmark fa-xl"></i></a>
-                        </div>
+                        <% if(isLiked[count] == 0){ %>
+                          <div class="col-md-1 Bookmark_int">
+                            <a href="/savetrain/<%=i._id%>" onclick="Bookmark(this)"><i class="fa-regular fa-bookmark fa-xl"></i></a>
+                          </div>
+    
+                          <div class="col-md-1 Bookmark_fin">
+                            <a href="/Unsave/<%=i._id%>" onclick="RemoveBookmark(this)"><i class="fa-solid fa-bookmark fa-xl"></i></a>
+                          </div>
+                          <%count++%>
+                        <%}else{%>
+                          <div class="col-md-1 Bookmark_fin">
+                            <a href="/savetrain/<%=i._id%>" onclick="Bookmark(this)"><i class="fa-regular fa-bookmark fa-xl"></i></a>
+                          </div>
+    
+                          <div class="col-md-1 Bookmark_int">
+                            <a href="/Unsave/<%=i._id%>" onclick="RemoveBookmark(this)"><i class="fa-solid fa-bookmark fa-xl"></i></a>
+                          </div>
+                          <%count++%>
+                        
+                        <%}%>
                         
                       </div>
                       <div class="row">
@@ -96,14 +109,26 @@
                         <div class="col-md-6">
                           To: <%=i.to%>
                         </div>
-                        <div class="col-md-1 Bookmark_int">
-                          <a href="/saveflight/<%=i._id%>" onclick="Bookmark(this)"><i class="fa-regular fa-bookmark fa-xl"></i></a>
-                        </div>
-  
-                        <div class="col-md-1 Bookmark_fin">
-                          <a href="/Unsave/<%=i._id%>" onclick="RemoveBookmark(this)"><i class="fa-solid fa-bookmark fa-xl"></i></a>
-                        </div>
-                        
+                        <% if(isLiked[count] == 0){ %>
+                          <div class="col-md-1 Bookmark_int">
+                            <a href="/saveflight/<%=i._id%>" onclick="Bookmark(this)"><i class="fa-regular fa-bookmark fa-xl"></i></a>
+                          </div>
+    
+                          <div class="col-md-1 Bookmark_fin">
+                            <a href="/Unsave/<%=i._id%>" onclick="RemoveBookmark(this)"><i class="fa-solid fa-bookmark fa-xl"></i></a>
+                          </div>
+                          <%count++%>
+                        <%}else{%>
+                          <div class="col-md-1 Bookmark_fin">
+                            <a href="/saveflight/<%=i._id%>" onclick="Bookmark(this)"><i class="fa-regular fa-bookmark fa-xl"></i></a>
+                          </div>
+    
+                          <div class="col-md-1 Bookmark_int">
+                            <a href="/Unsave/<%=i._id%>" onclick="RemoveBookmark(this)"><i class="fa-solid fa-bookmark fa-xl"></i></a>
+                          </div>
+                          <%count++%>
+                        <%}%>
+
                       </div>
                       <div class="row">
                         <div class="col-md-5">
@@ -153,8 +178,7 @@
   
                         <div class="col-md-1 Bookmark_fin">
                           <a href="/Unsave/<%=i._id%>" onclick="RemoveBookmark(this)"><i class="fa-solid fa-bookmark fa-xl"></i></a>
-                        </div>
-                        
+                        </div> 
                       </div>
                       <div class="row">
                         <div class="col-md-5">
