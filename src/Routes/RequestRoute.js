@@ -13,7 +13,6 @@ const Auth = require("../middleware/Auth");
 
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-const config = require("../config/config");
 
 RequestRoute.use((req, res, next) => {
     // Middleware logic for UserRoute
@@ -25,7 +24,7 @@ RequestRoute.use(cookieParser());
 RequestRoute.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: config.sessionSecret
+  secret: process.env.sessionSecret
 }))
 
 

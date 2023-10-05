@@ -11,7 +11,6 @@ const controller= require("../controllers/ContactController");
 
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-const config = require("../config/config");
 
 ContactRoute.use((req, res, next) => {
   // Middleware logic for UserRoute
@@ -24,7 +23,7 @@ ContactRoute.use(cookieParser());
 ContactRoute.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: config.sessionSecret
+  secret: process.env.sessionSecret
 }))
 
 

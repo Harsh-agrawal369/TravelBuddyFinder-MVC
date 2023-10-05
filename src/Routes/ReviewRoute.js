@@ -10,7 +10,6 @@ const controller= require("../controllers/ReviewController");
 
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-const config = require("../config/config");
 
 ReviewRoute.use((req, res, next) => {
   // Middleware logic for UserRoute
@@ -22,7 +21,7 @@ ReviewRoute.use(cookieParser());
 ReviewRoute.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: config.sessionSecret
+  secret: process.env.sessionSecret
 }))
 
 
