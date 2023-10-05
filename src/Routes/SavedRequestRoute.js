@@ -49,27 +49,39 @@ SavedRequestRoute.get("/LikedRequest",Auth.isLogin, async (req,res) => {
         
         const user = await Register.findOne({_id: req.session.user_id});
 
-        
+        //To get liked request mostly one month of today's date
+        const currentDate = new Date();
+        currentDate.setMonth(currentDate.getMonth() - 1);
+
+
         const Flight = await SavedRequest.find({$and: [{userId: req.session.user_id}, {mode: "flight"} ]});
         const Flights = [];
         for(let i=0; i<Flight.length; i++ ){
-            const req = await Request.RequestsFlight.findOne({_id: Flight[i].requestId});
-            Flights.push(req);
+            const req = await Request.RequestsFlight.findOne({$and: [{_id: Flight[i].requestId}, { date: { $gte: currentDate } }]});
+            if(req!=null){
+                Flights.push(req);
+            }
+            
         }
 
         const Train = await SavedRequest.find({$and: [{userId: req.session.user_id}, {mode: "train"} ]});
         const Trains = [];
         for(let i=0; i<Train.length; i++ ){
-            const req = await Request.RequestsTrain.findOne({_id: Train[i].requestId});
-            Trains.push(req);
+            const req = await Request.RequestsTrain.findOne({$and: [{_id: Train[i].requestId}, { date: { $gte: currentDate } }]});
+            if(req!=null){
+                Trains.push(req);
+            }
+            
         }
-
 
         const Cab = await SavedRequest.find({$and: [{userId: req.session.user_id}, {mode: "cab"} ]});
         const Cabs = [];
         for(let i=0; i<Cab.length; i++ ){
-            const req = await Request.RequestsCab.findOne({_id: Cab[i].requestId});
-            Cabs.push(req);
+            const req = await Request.RequestsCab.findOne({$and: [{_id: Cab[i].requestId}, { date: { $gte: currentDate } }]});
+            if(req!=null){
+                Cabs.push(req);
+            }
+            
         }
 
         res.render("LikedRequests", {name: user.Name, flight: Flights, train: Trains, cab: Cabs});
