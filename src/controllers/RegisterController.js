@@ -189,7 +189,19 @@ const sendresetPasswordMail = async(name, email, token, currentURL) => {
             from: process.env.AUTH_GMAIL,
             to: email,
             subject: 'Reset Password for your Travel Buddy finder account.',
-            html: '<p> Hello ' +name+ '!<br> Please use this link and <a href="'+protocol+'//'+host+'/changepass?token='+token+'">' + 'reset your password.' + '<br><br><br><br><br>' + 'Best Regards<br>Team Travel Buddy'
+            html: `<body style="font-family: Arial, sans-serif;background-color: #f5f5f5;text-align: center;margin: 0;padding: 0;">
+            <div class="container" style="max-width: 600px;margin: 0 auto;background-color: #bef6f7;padding: 20px;border-radius: 10px;margin-top: 50px;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <h1 style="color: #333;">Reset Password</h1>
+                <p style="font-size: 16px;line-height: 1.6;color: #555;margin-bottom: 20px;">Hello <strong>${name}</strong>,</p>
+                <p style="font-size: 16px;line-height: 1.6;color: #555;margin-bottom: 20px;">Please use this link to <a style="color: #007bff;text-decoration: none;" href="${protocol}//${host}/changepass?token=${token}">reset your password</a>.</p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <p style= "font-style: italic;color: #888;" class="signature">Best Regards<br>Team Travel Buddy</p>
+            </div>
+        </body>`
         }
         transporter.sendMail(mailOptions, (error, info) =>{
             if(error){
