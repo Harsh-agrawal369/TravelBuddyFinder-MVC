@@ -1,0 +1,73 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+nav{
+    background-image: linear-gradient(to bottom, rgba(85, 1, 85, 0.350), rgba(212, 12, 212, 0.001));
+    padding-bottom: 15px;
+}
+
+.heading-top{
+    font-size: 4em;
+    margin: 2px 8px;
+    color: rgb(37, 0, 37);
+}
+
+.nav-menu{
+    float: right;
+    margin: 17px 20px;
+}
+
+.nav-menu>button{
+    margin: 0 13px;
+    font-size: 1.41em;
+    width: 110px;
+    padding: 8px 0;
+    border-radius: 100px;
+}
+
+.nav-btn2{
+    background-color: purple;
+    border: 1px solid purple;
+    color: white;
+    transition: box-shadow 0.4s;
+}
+.nav-btn2:hover{
+    border: 1px solid rgb(91, 0, 91);
+}
+
+.heading-main{
+    text-align: center;
+}
+
+main{
+    width: 80%;
+    margin-left: 10%;
+}
+ul, .contact{
+    font-size: 1.26em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+footer{
+    background-color: rgb(53, 53, 53);
+    color: white;
+    text-align: center;
+    padding: 10px;
+
+}
+footer>p{
+    font-size: 1.9em;
+    margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .heading-top{
+        font-size: 2.6em;
+    }
+    .heading-main{
+        margin: 10px;
+        font-size: 2em;
+        text-align: center;
+    }
+  }
