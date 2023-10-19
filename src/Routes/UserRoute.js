@@ -108,11 +108,6 @@ UserRoute.get("/contact", async (req,res) => {
   res.render("contact");
 })
 
-//Getting get Request
-UserRoute.get("/TermsAndCondition", async (req,res) => {
-  res.render("TermsAndCondition");
-})
-
 //Rendering Forgot Password Request
 UserRoute.get("/forgotPassword", Auth.isLogout, async (req,res) => {
   res.render("forgotPassword", {error: null});
