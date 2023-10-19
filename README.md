@@ -49,3 +49,17 @@ If you wanna know more, just join the platform and reach the About Us Page.
 Travel Buddy Finder is a web-based platform, so there's no need for installation. Simply visit our website and sign up to get started.
 
 Thank you for choosing Travel Buddy Finder. We're excited to have you as part of our global community of travelers. Let's make travel more affordable, sociable, and unforgettable together!
+
+## Queries and Support
+
+For any inquiries, feedback, or support related to Travel Buddy Finder, please don't hesitate to reach out to our team. We're here to assist you.
+
+## Contact Information
+
+- **Harsh Agrawal**
+  - Email: agrawalharsh831@gmail.com
+
+- **Shaurya Pratap Singh**
+  - Email: shauryajt3455@gmail.com
+
+We value your input and are dedicated to ensuring you have the best experience while using our platform. Feel free to contact us at any time.
