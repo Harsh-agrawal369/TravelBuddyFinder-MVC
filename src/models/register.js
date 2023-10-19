@@ -29,9 +29,15 @@ const UserSchema = new mongoose.Schema({
     token: {
         type: String,
         default: ""
+    },
+    is_online: {
+        type: String,
+        default: '0'
     }
 
-})
+},
+{timestamps: true}
+)
 
 //Creating Collection
 const Register = new mongoose.model("Register", UserSchema);
