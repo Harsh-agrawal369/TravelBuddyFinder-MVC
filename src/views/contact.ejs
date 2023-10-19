@@ -42,6 +42,11 @@
                             Get In Touch
                         </div>
                     </div>
+                    <div class="row prevent" id= "prevent" style="display: none;">
+                        <div class="col-md-12" style="color: red;">
+                            Please fill all the details!!
+                        </div>
+                    </div>
                     <br><br><br>
                     <div class="row">
                         <div class="col-md-6">
@@ -67,7 +72,7 @@
                         </div>
                     </div>
                     <br><br>
-                    <button style="border-radius: 8px;" onclick="changeContactSection()" type="submit"> <span>SUBMIT</span> </button> <br><br>
+                    <button style="border-radius: 8px;" onclick="changeContactSection(event)" type="submit"> <span>SUBMIT</span> </button> <br><br>
                     <!-- <div class="row">
                         <div class="col-md-12">
                             <button style="border-radius: 8px;" onclick="changeContactSection()"> <span>SUBMIT</span> </button> <br><br>
@@ -107,15 +112,30 @@
     <a href="/backhome" class="options home-link">&#8592; Back to Home</a> <br> <br>
 
     <script>
-        function changeContactSection() {
+        function changeContactSection(event) {
+            event.preventDefault(); // Prevent the form from submitting
+    
+            // Validate form fields
+            var firstname = document.getElementsByName("firstname")[0].value;
+            var lastname = document.getElementsByName("lastname")[0].value;
+            var email = document.getElementsByName("email")[0].value;
+            var contact = document.getElementsByName("contact")[0].value;
+            var message = document.getElementsByName("message")[0].value;
+    
+            if (firstname === "" || lastname === "" || email === "" || contact === "" || message === "") {
+                // alert("Please fill in all fields.");
+                document.getElementById("prevent").style.display = "block";
+                return;
+            }
+    
             // Hide the Contact section
             document.getElementById("contact").style.display = "none";
-            
+    
             // Show the success message
             const successMessage = document.getElementById("contact-success-message");
             successMessage.style.display = "block";
-            // Optionally, you can redirect to another page or perform additional actions here
         }
     </script>
+    
 </body>
 </html>
