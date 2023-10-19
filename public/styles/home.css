@@ -483,7 +483,7 @@ footer {
 }
 
 .im1{
-    width: 80px;
+    width: 60px;
 }
 .im2{
     width: 48px;
@@ -491,6 +491,9 @@ footer {
 .im3{
     width: 51px;
     margin-left: 23px;
+}
+.Admin{
+    font-size: 1.3em;
 }
 
 @media only screen and (max-width: 600px){

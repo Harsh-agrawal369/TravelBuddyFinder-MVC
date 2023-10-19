@@ -154,7 +154,7 @@ option {
   font-size: 1.1em;
   width: 60%;
   margin-left: 20%;
-  box-shadow: 5px 3px 5px rgba(75, 1, 1, 0.74);
+  /* box-shadow: 5px 3px 5px rgba(75, 1, 1, 0.74); */
 }
 .butt1:hover {
   padding: 20px 17px 20px 17px;
