@@ -63,3 +63,7 @@ For any inquiries, feedback, or support related to Travel Buddy Finder, please d
   - Email: shauryajt3455@gmail.com
 
 We value your input and are dedicated to ensuring you have the best experience while using our platform. Feel free to contact us at any time.
+
+---
+
+© 2023 Travel Buddy Finder. All Rights Reserved.
