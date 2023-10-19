@@ -54,7 +54,7 @@ Thank you for choosing Travel Buddy Finder. We're excited to have you as part of
 
 For any inquiries, feedback, or support related to Travel Buddy Finder, please don't hesitate to reach out to our team. We're here to assist you.
 
-## Contact Information
+### Contact Information
 
 - **Harsh Agrawal**
   - Email: agrawalharsh831@gmail.com
