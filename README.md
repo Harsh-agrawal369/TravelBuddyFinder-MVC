@@ -7,6 +7,7 @@ Welcome to Travel Buddy Finder, your go-to platform for connecting with fellow t
 - [Getting Started](#getting-started)
 - [Features](#features)
 - [Installation](#installation)
+- [Queries and Support](#queries-and-support)
 
 ## About
 
