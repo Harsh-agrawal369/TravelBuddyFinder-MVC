@@ -65,7 +65,7 @@ UserRoute.get("/about", (req, res) => {
 UserRoute.get("/index", Auth.isLogin, async (req,res) => {
     const user = await Register.findOne({_id: req.session.user_id});
     try{
-      res.render("index", {name: user.Name});
+      res.render("index", {name: user.Name, isSucessfull:0});
     }catch(err){
       res.render("login", {errorMessage: "Internal server error!"})
     }
@@ -85,7 +85,7 @@ UserRoute.get("/logout", Auth.isLogin, (req,res) => {
 UserRoute.get("/backhome", Auth.isLogin, async (req,res) => {
     try{
       const user = await Register.findOne({ _id : req.session.user_id});
-      res.render("index", {name: user.Name});
+      res.render("index", {name: user.Name, isSucessfull: 0});
     } catch(err){
       res.render("index", {name: null});
     }

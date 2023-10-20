@@ -14,6 +14,37 @@
     <link rel="icon" type="image/x-icon" href="./images/brand-icon/logo-big.png">
     <title>Travel Buddy Finder</title>
 
+
+    <script>
+        function showCustomAlert() {
+          const customAlert = document.createElement('div');
+          customAlert.className = 'custom-alert';
+    
+          const alertText = document.createElement('p');
+          alertText.textContent = 'Request Submitted Successfully';
+    
+          const okButton = document.createElement('button');
+          okButton.textContent = 'OK';
+          okButton.addEventListener('click', function () {
+            window.location.href = '/index';   
+          });
+    
+          customAlert.appendChild(alertText);
+          customAlert.appendChild(okButton);
+    
+          document.body.appendChild(customAlert);
+
+          customAlert.style.position = 'fixed';
+            customAlert.style.top = '6%';
+            customAlert.style.left = '20%';
+            customAlert.style.transform = 'translate(-50%, -50%)';
+            customAlert.style.zIndex = '9999';
+        }
+
+
+
+    </script>
+
     <style>
         .typewriter h1 {
             overflow: hidden;
@@ -39,12 +70,41 @@
             opacity: 0;
             transition: opacity 3s ease;
         }
+
+        .custom-alert {
+            margin-left: 30%;
+            background-color: #89b9868f;
+            border: solid 1px rgb(0, 95, 0);
+            color: #000000;
+            font-size: 1.4em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            width: 40%;
+            }
+            .custom-alert > button{
+            width: 100px;
+            padding: 6px;
+            border-radius: 4px;
+            border: none;
+            background-color: rgba(0, 153, 0, 0.799);
+            font-size: 0.77em;
+            color: white;
+        }
     </style>
 
 </head>
 
 <body>
 
+    <% if(isSucessfull == 1) { %>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                showCustomAlert();
+            });
+        </script>
+    <% } %>
     <div class="header">
         <br class="brtag">
         <h1>Travel Buddy Finder</h1>
@@ -72,6 +132,7 @@
         </nav>
     </div>
 
+    
 
     <br><br><br class="brhide">
     <br class="brhide"><br class="brhide"><br class="brhide">

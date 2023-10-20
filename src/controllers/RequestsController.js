@@ -27,7 +27,7 @@ const AddCabRequest = async (req, res) => {
       });
   
       const newR = await newReq.save();
-      res.status(201).render("index", {name: user.Name});
+      res.status(201).render("index", {name: user.Name, isSucessfull: 1});
     } catch (error) {
       console.error(error);
       res.status(500).render("error", { errorMessage: "Something went wrong." });
@@ -57,7 +57,7 @@ const AddTrainRequest = async (req, res) => {
       });
   
       const newR = await newReq.save();
-      res.status(201).render("index", {name: user.Name});
+      res.status(201).render("index", {name: user.Name,isSucessfull: 1});
     } catch (error) {
       console.error(error);
       res.status(500).render("error", { errorMessage: "Something went wrong." });
@@ -87,7 +87,7 @@ const AddFlightRequest = async (req, res) => {
       });
   
       const newR = await newReq.save();
-      res.status(201).render("index", {name: user.Name});
+      res.status(201).render("index", {name: user.Name, isSucessfull: 1});
     } catch (error) {
       console.error(error);
       res.status(500).render("error", { errorMessage: "Something went wrong." });

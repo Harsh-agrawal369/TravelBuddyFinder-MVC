@@ -49,7 +49,7 @@ RequestRoute.get("/requesthistory", Auth.isLogin, async (req,res) => {
 })
 
 //Rendering post new Request Train
-RequestRoute.get("/postRequestTrain", (req, res)=>{
+RequestRoute.get("/postRequestTrain", Auth.isLogin, (req, res)=>{
     try{
       res.render("newRequestTrain");
     }catch{
@@ -58,7 +58,7 @@ RequestRoute.get("/postRequestTrain", (req, res)=>{
 })
   
 //Rendering post new Request Flight
-RequestRoute.get("/postRequestFlight", (req, res)=>{
+RequestRoute.get("/postRequestFlight", Auth.isLogin, (req, res)=>{
     try{
       res.render("newRequestFlight");
     }catch{
@@ -67,7 +67,7 @@ RequestRoute.get("/postRequestFlight", (req, res)=>{
 })
   
 //Rendering post new Request Cab
-RequestRoute.get("/postRequestCab", (req, res)=>{
+RequestRoute.get("/postRequestCab", Auth.isLogin, (req, res)=>{
     try{
       res.render("newRequestCab");
     }catch{
