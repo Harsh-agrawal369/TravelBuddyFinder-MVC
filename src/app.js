@@ -23,7 +23,7 @@ app.use(express.static(static_path));
 
 //Setting View Engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, "./views"));
+app.set('views', path.join(__dirname, "views"));
 
 //Transfering Requests to Routes
 app.use("/", UserRoute);

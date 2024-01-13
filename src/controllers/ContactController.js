@@ -33,7 +33,7 @@ const SendMailAdmin = async (firstname, lastname, email, contact, message) => {
         if (error) {
             console.log(error);
         } else {
-            // console.log("Email Sent!" + info.response);
+            console.log("Email Sent to admins!" + info.response);
         }
     })
 }
@@ -59,16 +59,17 @@ const SendMailUser = async (firstname, email) => {
         if (error) {
             console.log(error);
         } else {
-            // console.log("Email Sent!" + info.response);
+            console.log("Email Sent!" + info.response);
         }
     })
 }
 
 
-const NewQuery = async (req, res) => {
+const NewQuerys = async (req, res) => {
+    console.log("Hello! I'm Stuck Here.")
     try{
         const {firstname, lastname, contact, message, email} = req.body;
-
+        console.log(firstname);
         const newquery = new Contact({
             name: firstname + " " + lastname,
             message: message,
@@ -78,7 +79,9 @@ const NewQuery = async (req, res) => {
         })
 
         const nquery = await newquery.save();
-
+        if(nquery){
+            console.log("Message saved");
+        }
         SendMailAdmin(firstname,lastname,email,contact,message);
         SendMailUser(firstname,email);
         res.status(204).send();
@@ -87,6 +90,5 @@ const NewQuery = async (req, res) => {
         res.render("login", {errorMessage: "Internal server error! "});
     }
 }
-module.exports={
-    NewQuery
-};
+
+module.exports= NewQuerys ;

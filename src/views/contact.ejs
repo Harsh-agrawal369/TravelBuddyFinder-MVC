@@ -35,7 +35,7 @@
                 Your Query will be resolved soon.</p>
             </div>
             <div class="col-md-8" id="contact">
-                <form action="/submitcontact" method="post">
+                <form action="/contacts" method="POST" id="my-form">
                     <div class="row">
                         <div class="col-md-12" style="font-size: 2em; font-weight: 550;">
                             <br>
@@ -134,6 +134,8 @@
             // Show the success message
             const successMessage = document.getElementById("contact-success-message");
             successMessage.style.display = "block";
+
+            document.querySelector("#my-form").submit();
         }
     </script>
     

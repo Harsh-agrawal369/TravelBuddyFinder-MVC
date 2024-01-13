@@ -4,8 +4,6 @@ const randomString = require("randomstring");
 const nodemailer = require("nodemailer");
 var url = require('url');
 const http =  require("https");
-const { use } = require("../Routes/UserRoute");
-
 
 
 //Signup Control Function
@@ -181,6 +179,7 @@ const sendresetPasswordMail = async(name, email, token, currentURL) => {
             requireTLS: true
         });
 
+        // console.log(currentURL);
         var url_r = new URL(currentURL);
         var protocol = url_r.protocol;
         var host = url_r.host;
@@ -203,7 +202,7 @@ const sendresetPasswordMail = async(name, email, token, currentURL) => {
             </div>
         </body>`
         }
-        transporter.sendMail(mailOptions, (error, info) =>{
+        await transporter.sendMail(mailOptions, (error, info) =>{
             if(error){
                 console.log(error);
             }
@@ -222,6 +221,7 @@ const ResetPassword = async (req,res) => {
     try{
 
         const {email, currentURL} = req.body;
+        // console.log(email);
 
         const user = await Register.findOne({Email: email});
 
@@ -236,6 +236,7 @@ const ResetPassword = async (req,res) => {
             
             const randomstr = randomString.generate();
             const data = await Register.findOneAndUpdate({Email: email}, {$set: {token: randomstr}});
+            // console.log(data);
             sendresetPasswordMail(data.Name,email,randomstr,currentURL);
             res.render("forgotPassword", {error: "Please check your inbox! A reset link has been sent."});
         }
