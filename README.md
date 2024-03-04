@@ -24,7 +24,7 @@ Our platform provides the tools and resources necessary for travelers to plan an
 
 ## Getting Started
 
-To get started with Travel Buddy Finder, you can visit our website at https://travelbuddyfinder.onrender.com/ and sign up for an account. Once you're a member, you can begin connecting with fellow travelers and planning your journeys together. Go and explore the platofrm.
+To get started with Travel Buddy Finder, you can visit this website at https://travelbuddyfinder.onrender.com/ and sign up for an account. Once you're a member, you can begin connecting with fellow travelers and planning your journeys together. Go and explore the platofrm.
 
 ## How to Use
 
