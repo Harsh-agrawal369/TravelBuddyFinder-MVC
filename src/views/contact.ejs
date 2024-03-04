@@ -116,11 +116,11 @@
             event.preventDefault(); // Prevent the form from submitting
     
             // Validate form fields
-            var firstname = document.getElementsByName("firstname")[0].value;
-            var lastname = document.getElementsByName("lastname")[0].value;
-            var email = document.getElementsByName("email")[0].value;
-            var contact = document.getElementsByName("contact")[0].value;
-            var message = document.getElementsByName("message")[0].value;
+            let firstname = document.getElementsByName("firstname")[0].value;
+            let lastname = document.getElementsByName("lastname")[0].value;
+            let email = document.getElementsByName("email")[0].value;
+            let contact = document.getElementsByName("contact")[0].value;
+            let message = document.getElementsByName("message")[0].value;
     
             if (firstname === "" || lastname === "" || email === "" || contact === "" || message === "") {
                 // alert("Please fill in all fields.");

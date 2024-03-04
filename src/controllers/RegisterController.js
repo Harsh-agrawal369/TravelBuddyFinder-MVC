@@ -2,7 +2,7 @@ const Register = require("../models/register");
 const bcrypt = require("bcryptjs");
 const randomString = require("randomstring");
 const nodemailer = require("nodemailer");
-var url = require('url');
+const url = require('url');
 const http =  require("https");
 
 
@@ -89,12 +89,10 @@ const UpdatePassword = async (req,res) => {
         }
         else{
             const {currentURL} = req.body;
-            // var url_r = new URLSearchParams(currentURL);
+            
             const urlParams = currentURL.split('?')[1];
             const token = urlParams.split('=')[1];
-            // console.log(token);
             const tokenData = await Register.findOne({token: token});
-            // console.log(tokenData);
             if(tokenData){
                 const {Password,confirmPassword} = req.body;
                 const user = await Register.findOne({_id: tokenData._id});
@@ -180,9 +178,9 @@ const sendresetPasswordMail = async(name, email, token, currentURL) => {
         });
 
         // console.log(currentURL);
-        var url_r = new URL(currentURL);
-        var protocol = url_r.protocol;
-        var host = url_r.host;
+        let url_r = new URL(currentURL);
+        let protocol = url_r.protocol;
+        let host = url_r.host;
 
         const mailOptions = {
             from: process.env.AUTH_GMAIL,
@@ -229,7 +227,7 @@ const ResetPassword = async (req,res) => {
             return res.render("forgotPassword", {error: "Email is not registered! Please enter valid email."});
         }
         else{
-            // var url = new URL("https://travelbuddyfinder.onrender.com/contact");
+            // let url = new URL("https://travelbuddyfinder.onrender.com/contact");
             // console.log(url.protocol);
             // console.log(url.host);
 

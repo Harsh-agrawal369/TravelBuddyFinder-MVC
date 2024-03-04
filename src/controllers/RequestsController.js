@@ -130,7 +130,7 @@ const SearchCab = async (req, res) => {
         return res.render("requests", {name: user.Name, data: reqs, mode: "cab", count: count1, isLiked: Liked});
       }
       const request = [];
-      var i=0, count=0;
+      let i=0, count=0;
   
       // Convert time to minutes since midnight for comparison
       const [hours, minutes] = time.split(':').map(Number);

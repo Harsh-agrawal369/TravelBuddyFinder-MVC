@@ -425,8 +425,8 @@
 
     <script>
         function handleTipClick(index) {
-            var tipPoints = document.getElementById(`tipPoints${index}`);
-            var tipPointsStyle = getComputedStyle(tipPoints);
+            let tipPoints = document.getElementById(`tipPoints${index}`);
+            let tipPointsStyle = getComputedStyle(tipPoints);
 
             if (tipPointsStyle.display === "none") {
                 tipPoints.style.display = "block";
@@ -519,8 +519,8 @@
         document.getElementById("type-btnFlight").style.border = "none";
 
         function showSearchWindow(type) {
-            var searchWindows = document.getElementsByClassName("search-menu");
-            for (var i = 0; i < searchWindows.length; i++) {
+            let searchWindows = document.getElementsByClassName("search-menu");
+            for (let i = 0; i < searchWindows.length; i++) {
                 searchWindows[i].style.display = "none";
                 document.getElementById("type-btnCab").style.backgroundColor = "rgb(38, 93, 201)";
                 document.getElementById("type-btnTrain").style.backgroundColor = "rgb(38, 93, 201)";
@@ -531,7 +531,7 @@
                 document.getElementById("type-btnFlight").style.border = "none";
             }
 
-            var searchWindow = document.getElementById("searchWindow" + type);
+            let searchWindow = document.getElementById("searchWindow" + type);
             if (searchWindow) {
                 searchWindow.style.display = "block";
                 document.getElementById("type-btn" + type).style.backgroundColor = "rgb(18, 73, 151)";
@@ -546,14 +546,14 @@
 
     <script>
         window.onload = function () {
-            var elements = document.getElementsByClassName("typewriter");
-            for (var i = 0; i < elements.length; i++) {
-                var text = elements[i].innerHTML;
+            let elements = document.getElementsByClassName("typewriter");
+            for (let i = 0; i < elements.length; i++) {
+                let text = elements[i].innerHTML;
                 elements[i].innerHTML = "";
-                var span = document.createElement("span");
+                let span = document.createElement("span");
                 elements[i].appendChild(span);
-                var j = 0;
-                var interval = setInterval(function () {
+                let j = 0;
+                let interval = setInterval(function () {
                     if (j < text.length) {
                         span.innerHTML += text.charAt(j);
                         j++;

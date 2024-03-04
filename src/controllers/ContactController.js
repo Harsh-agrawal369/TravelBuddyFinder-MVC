@@ -2,7 +2,7 @@ const Contact = require("../models/Contacts");
 const nodemailer = require("nodemailer");
 
 
-var transporter = nodemailer.createTransport({
+let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: process.env.AUTH_GMAIL,
@@ -11,7 +11,7 @@ var transporter = nodemailer.createTransport({
 })
 
 const SendMailAdmin = async (firstname, lastname, email, contact, message) => {
-    var mailOptions = {
+    let mailOptions = {
         from: process.env.AUTH_GMAIL,
         to: [process.env.ADMIN1_GMAIL, process.env.ADMIN2_GMAIL], 
         subject: 'New Contact Query on TravelBuddyFinder',
@@ -39,7 +39,7 @@ const SendMailAdmin = async (firstname, lastname, email, contact, message) => {
 }
 
 const SendMailUser = async (firstname, email) => {
-    var mailOptions = {
+    let mailOptions = {
         from: process.env.AUTH_GMAIL,
         to: email, 
         subject: 'Thank You for contacting us.',

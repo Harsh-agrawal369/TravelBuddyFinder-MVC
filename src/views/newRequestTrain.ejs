@@ -41,8 +41,8 @@
         }
 
         function validateDate() {
-            var inputDate = document.getElementById("date").value;
-            var today = new Date().toISOString().split('T')[0];
+            let inputDate = document.getElementById("date").value;
+            let today = new Date().toISOString().split('T')[0];
 
             if (inputDate < today) {
                 showCustomAlert();
