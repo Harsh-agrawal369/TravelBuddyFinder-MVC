@@ -38,3 +38,4 @@ app.listen(PORT, () => {
 })
 
 // "node": ">= 0.6"
+module.exports = app;
