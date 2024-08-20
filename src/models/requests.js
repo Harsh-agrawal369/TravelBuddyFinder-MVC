@@ -6,7 +6,7 @@ const RequestSchemaTrain = new mongoose.Schema({
     date: { type: Date, required: true },
     // time: { type: String, required: true },
     email: { type: String, required:true},
-    contact_num: {type: Number, required: true},
+    contact_num: {type: Number, required: true, default: null},
     Trainnumber: {type: Number, required: true},
     class: {type: String, required: true}
 });
@@ -22,7 +22,7 @@ const RequestSchemaCab = new mongoose.Schema({
     vacantspace: {type: Number, required: true},
     genderSpecification: { type: String, required: true },
     email: { type: String, required:true},
-    contact_num: {type: Number, required: true},
+    contact_num: {type: Number, required: true, default: null},
     fareShare: {type: Number, required: true}
 })
 
@@ -35,7 +35,7 @@ const RequestSchemaFlight = new mongoose.Schema({
     date: { type: Date, required: true },
     // time: { type: String, required: true },
     email: { type: String, required:true},
-    contact_num: {type: Number, required: true},
+    contact_num: {type: Number, required: true, default: null},
     Flightnumber: {type: String, required: true},
     class: {type: String, required: true}
 })
