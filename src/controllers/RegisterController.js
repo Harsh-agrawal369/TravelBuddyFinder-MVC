@@ -13,7 +13,7 @@ const Signup = async (req, res) => {
     try{
         const users = await Register.findOne({Email: email});
         if(users!=null){
-            res.render("signup", {errorMessage: "Email already in use"});
+            res.render("login", {errorMessage: "Email already in use"});
         } else if(password!=confirmPassword){
             res.render("signup", {errorMessage: "Passwords does not match"});
         } else{
