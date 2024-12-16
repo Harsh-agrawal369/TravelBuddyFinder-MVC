@@ -3,6 +3,7 @@
 Welcome to Travel Buddy Finder, your go-to platform for connecting with fellow travelers, sharing journeys, and making travel more affordable and enjoyable.
 
 ## Table of Contents
+
 - [About](#about)
 - [Getting Started](#getting-started)
 - [Features](#features)
@@ -11,10 +12,10 @@ Welcome to Travel Buddy Finder, your go-to platform for connecting with fellow t
 
 ## About
 
-Travel Buddy Finder is designed to address the challenges of solo travel, high costs, and missed opportunities for meaningful connections. 
+Travel Buddy Finder is designed to address the challenges of solo travel, high costs, and missed opportunities for meaningful connections.
 Our platform was born out of a college project and personal experiences, where we realized the need for a solution that facilitates cost-sharing and enhances travel experiences.
-Our inception was rooted in the academic halls of college. Travel Buddy Finder emerged as a college project, a brainchild born out of our collective passion for exploration and the genuine need we saw in the world of travel. 
-We, the creators behind Travel Buddy Finder, were travelers ourselves, and we faced the same challenges you might be familiar with. 
+Our inception was rooted in the academic halls of college. Travel Buddy Finder emerged as a college project, a brainchild born out of our collective passion for exploration and the genuine need we saw in the world of travel.
+We, the creators behind Travel Buddy Finder, were travelers ourselves, and we faced the same challenges you might be familiar with.
 The high costs of getting to the airport via a cab, the solitude of long train journeys, and the missed connections with fellow adventurers - these were the issues that inspired us to take action.
 
 We understand that exploring new destinations is not just about reaching a destination but also about the journey itself. We recognize the challenges and limitations of solo travel, both in terms of expenses and the missed opportunities for meaningful connections.
@@ -58,6 +59,7 @@ For any inquiries, feedback, or support related to Travel Buddy Finder, please d
 ### Contact Developers
 
 - **Harsh Agrawal**
+
   - Email: agrawalharsh831@gmail.com
 
 - **Shaurya Pratap Singh**
